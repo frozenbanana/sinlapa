@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sinlapa är en thailändsk fusionrestaurang i Malmö. Upptäck dagens lunch, vår meny, catering och boka bord."
+    />
+    <meta name="theme-color" content="#17120f" />
+    <meta property="og:title" content="Sinlapa – Thai fusion i Malmö" />
+    <meta
+      property="og:description"
+      content="Autentiska thailändska smaker, modern kreativitet och varm gästfrihet på Amiralsgatan 8K i Malmö."
+    />
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:image" content="/assets/hero.webp" />
+    <title>Sinlapa – Thai fusion och lunch i Malmö</title>
+    <link rel="preload" href="/assets/hero.webp" as="image" type="image/webp" />
+    <link rel="stylesheet" href="/styles.css?v=20260731-fraunces" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Sinlapa",
+        "description": "Thai fusion-restaurang i Malmö där autentiska smaker möter modern kreativitet.",
+        "image": "https://sinlapa.se/wp-content/uploads/2026/07/pics-for-website-5-1086x1536.png.webp",
+        "servesCuisine": ["Thai", "Thai fusion", "Asian fusion"],
+        "priceRange": "$$",
+        "telephone": "+46 760 07 7599",
+        "email": "info@sinlapa.se",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Amiralsgatan 8K",
+          "postalCode": "211 55",
+          "addressLocality": "Malmö",
+          "addressCountry": "SE"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+            "opens": "11:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Friday",
+            "opens": "11:00",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "12:00",
+            "closes": "21:00"
+          }
+        ],
+        "acceptsReservations": true,
+        "menu": "#meny"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehållet</a>
+
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Sinlapa, startsida">
+          <img src="/assets/logo.webp" alt="Sinlapa" width="136" height="56" />
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Öppna meny"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Huvudmeny">
+          <a href="#lunch">Dagens lunch</a>
+          <a href="#meny">Meny</a>
+          <a href="#catering">Catering</a>
+          <a href="#om">Om oss</a>
+          <a href="#kontakt">Hitta hit</a>
+          <a href="#boka">Boka bord</a>
+        </nav>
+        <button class="button button-small order-open" type="button">Beställ mat</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Thai fusion · Malmö</p>
+          <h1 id="hero-title">Varje bowl är<br /><em>ett konstverk.</em></h1>
+          <p class="hero-copy">
+            Autentiska thailändska smaker möter modern kreativitet, lagat med färska
+            råvaror och ett varmt välkomnande.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#meny">Utforska menyn</a>
+            <button class="button button-ghost order-open" type="button">Beställ mat</button>
+          </div>
+          <div class="hero-proof" aria-label="Gästomdöme">
+            <span aria-hidden="true">★★★★★</span>
+            <strong>4,7 på Google</strong>
+            <span>137+ omdömen</span>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#snabbinfo" aria-label="Fortsätt till restauranginformation">
+          <span>Upptäck Sinlapa</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section class="quick-info" id="snabbinfo" aria-label="Snabb information">
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">◷</span>
+          <div><small>Öppet idag</small><strong id="open-status">Se öppettider</strong></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">⌖</span>
+          <div><small>Mitt i Malmö</small><strong>Amiralsgatan 8K</strong></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-icon" aria-hidden="true">♨</span>
+          <div><small>Vardagar 11–14</small><strong>Lunch 129 kr inkl. soppa</strong></div>
+        </div>
+        <a class="text-link" href="#kontakt">Hitta hit <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="section lunch-section" id="lunch" aria-labelledby="lunch-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Dagens lunch</p>
+            <h2 id="lunch-title">En smakrik paus<br />mitt på dagen</h2>
+          </div>
+          <p>
+            Vardagar kl. 11–14. Välj dagens rätt och njut av husets soppa på köpet.
+            Vegetariskt alternativ finns alltid.
+          </p>
+        </div>
+        <div class="lunch-panel">
+          <div class="lunch-date">
+            <small>Den här veckan</small>
+            <strong>Lunch hos Sinlapa</strong>
+            <span>129 kr</span>
+          </div>
+          <div class="lunch-list">
+            <article>
+              <div>
+                <span class="menu-tag">Populär</span>
+                <h3>Dagens Thai Fusion Bowl</h3>
+                <p>Kockens val med säsongens grönsaker, jasminris och husets sås.</p>
+              </div>
+              <span class="diet">Går att få vegetarisk</span>
+            </article>
+            <article>
+              <div>
+                <span class="menu-tag">Vegetarisk</span>
+                <h3>Veckans gröna bowl</h3>
+                <p>Färska grönsaker, örter, krispigt tillbehör och balanserad hetta.</p>
+              </div>
+              <span class="diet">Fråga oss om allergener</span>
+            </article>
+          </div>
+          <div class="lunch-note">
+            <strong>Alltid inkluderat</strong>
+            <span>Husets soppa · Vatten · Kaffe</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="meny" aria-labelledby="menu-title">
+        <div class="section-heading section-heading-light">
+          <div>
+            <p class="eyebrow">Sinlapa meny</p>
+            <h2 id="menu-title">Thai classics.<br /><em>Sinlapa twist.</em></h2>
+          </div>
+          <div>
+            <p>
+              Utforska några favoriter. Alla rätter lagas på beställning med
+              noggrant utvalda råvaror.
+            </p>
+            <div class="filters" role="group" aria-label="Filtrera menyn">
+              <button class="filter active" type="button" data-filter="all">Alla</button>
+              <button class="filter" type="button" data-filter="popular">Populärt</button>
+              <button class="filter" type="button" data-filter="vegan">Veganskt</button>
+              <button class="filter" type="button" data-filter="spicy">Starkt</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <article class="dish-card" data-tags="popular spicy">
+            <img class="scraped-menu-image" src="/assets/menu-5.webp" alt="Yum crispy chicken bowl med örter, ris och krämig sås" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Yum bowl</span><strong>Se aktuell meny</strong></div>
+              <h3>Yum Crispy Chicken</h3>
+              <p>Krispig kyckling, färska örter, grönsaker, ris och husets krämiga sås.</p>
+              <div class="dish-labels"><span>Populär</span><span>🌶🌶</span></div>
+            </div>
+          </article>
+          <article class="dish-card" data-tags="popular">
+            <img class="scraped-menu-image" src="/assets/menu-6.webp" alt="Sinlapa sharing plate med flera smårätter och dippsåser" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Att dela</span><strong>Se aktuell meny</strong></div>
+              <h3>Sinlapa Sharing Plate</h3>
+              <p>Ett urval av krispiga smårätter, edamame, örter och flera dippsåser.</p>
+              <div class="dish-labels"><span>Perfekt att dela</span><span>Kockens val</span></div>
+            </div>
+          </article>
+          <article class="dish-card" data-tags="vegan">
+            <img class="scraped-menu-image" src="/assets/menu-7.webp" alt="Po Pia Tod, krispiga vegetariska vårrullar med sweet chilisås" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Smårätt</span><strong>65 kr</strong></div>
+              <h3>Po Pia Tod</h3>
+              <p>Krispiga vegetariska vårrullar serverade med sweet chilisås.</p>
+              <div class="dish-labels"><span>Vegansk</span><span>Mild</span></div>
+            </div>
+          </article>
+          <article class="dish-card" data-tags="">
+            <img class="scraped-menu-image" src="/assets/menu-8.webp" alt="Två glas Thai iced tea med lime och mynta" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Signature drink</span><strong>Se aktuell meny</strong></div>
+              <h3>Thai Iced Tea</h3>
+              <p>Iskall thailändsk tedryck med lime och färsk mynta.</p>
+              <div class="dish-labels"><span>Uppfriskande</span><span>Alkoholfri</span></div>
+            </div>
+          </article>
+          <article class="dish-card" data-tags="vegan">
+            <img class="scraped-menu-image" src="/assets/menu-9.webp" alt="Mango sticky rice med kokosmjölk och färsk mynta" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Dessert</span><strong>Se aktuell meny</strong></div>
+              <h3>Mango Sticky Rice</h3>
+              <p>Färsk mango, sticky rice och len kokosmjölk, toppad med mynta.</p>
+              <div class="dish-labels"><span>Vegansk</span><span>Thai classic</span></div>
+            </div>
+          </article>
+          <article class="dish-card" data-tags="popular spicy">
+            <img class="scraped-menu-image" src="/assets/menu-10.webp" alt="Crispy chicken bowl med grönsaker, jordnötter och chilisås" loading="lazy" />
+            <div class="dish-body">
+              <div class="dish-topline"><span>Special bowl</span><strong>från 155 kr</strong></div>
+              <h3>Crispy Chicken Bowl</h3>
+              <p>Krispig kyckling, färska grönsaker, jordnötter och chilisås.</p>
+              <div class="dish-labels"><span>Populär</span><span>🌶🌶</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="menu-footer">
+          <p>
+            Allergisk? Prata med oss före beställning. Vi hjälper dig gärna att hitta
+            ett alternativ som passar.
+          </p>
+          <button class="button order-open" type="button">Beställ dina favoriter</button>
+        </div>
+      </section>
+
+      <section class="story-section" id="om" aria-labelledby="story-title">
+        <div class="story-image" role="img" aria-label="Sinlapa Queen, ett konstverk från Sinlapa"></div>
+        <div class="story-content">
+          <p class="eyebrow">Vår berättelse</p>
+          <h2 id="story-title">Smak och konst,<br />skapad av <em>Kanlaya.</em></h2>
+          <blockquote>“Jag tror att varje maträtt kan vara ett konstverk.”</blockquote>
+          <p>
+            Kanlaya växte upp i Thailand, omgiven av en matkultur fylld av färg,
+            doft och unika smaker. Med över 15 års erfarenhet som internationell
+            kock förenar hon thailändskt mathantverk med modern presentation.
+          </p>
+          <p>
+            Sinlapa betyder konst på thailändska. Det syns i varje detalj, från
+            restaurangens inredning till balansen av smak, färg och form på tallriken.
+          </p>
+          <a class="text-link" href="#boka">Upplev Sinlapa <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="section reviews-section" aria-labelledby="reviews-title">
+        <div class="reviews-intro">
+          <p class="eyebrow">Våra gäster berättar</p>
+          <h2 id="reviews-title">Smaker värda<br />att komma tillbaka för.</h2>
+          <div class="rating-large">
+            <strong>4,7</strong>
+            <div><span aria-hidden="true">★★★★★</span><small>137+ Google-omdömen</small></div>
+          </div>
+        </div>
+        <div class="review-cards">
+          <blockquote>
+            <span aria-hidden="true">★★★★★</span>
+            <p>“Riktigt gott. Utsökt mat och bra service. Rekommenderar!”</p>
+            <footer>Google-gäst · 2026</footer>
+          </blockquote>
+          <blockquote>
+            <span aria-hidden="true">★★★★★</span>
+            <p>“En riktig positiv överraskning. Genuin mat med fantastiska smaker.”</p>
+            <footer>Jesper · Google</footer>
+          </blockquote>
+          <blockquote>
+            <span aria-hidden="true">★★★★★</span>
+            <p>“Väldigt serviceminded och maten gjorde vårt event till en succé.”</p>
+            <footer>Cateringkund · Google</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="catering-section" id="catering" aria-labelledby="catering-title">
+        <div class="catering-copy">
+          <p class="eyebrow">Catering & events</p>
+          <h2 id="catering-title">Gör plats för<br /><em>något minnesvärt.</em></h2>
+          <p>
+            Från möteslunch och mingel till bröllop och stora fester. Vi skapar ett
+            upplägg efter er smak, era behov och ert sällskap.
+          </p>
+          <ul class="check-list">
+            <li>Fusion bowls från 139 kr per person</li>
+            <li>Bufféförslag för sällskap från 10 personer</li>
+            <li>Vegetariska, veganska och allergianpassade alternativ</li>
+            <li>Leverans och presentation efter överenskommelse</li>
+          </ul>
+        </div>
+        <form class="lead-form demo-form" aria-labelledby="quote-title">
+          <div class="form-heading">
+            <small>Snabb förfrågan</small>
+            <h3 id="quote-title">Berätta om ert event</h3>
+          </div>
+          <div class="form-grid">
+            <label>Namn<input type="text" name="name" autocomplete="name" required /></label>
+            <label>E-post<input type="email" name="email" autocomplete="email" required /></label>
+            <label>Datum<input type="date" name="date" required /></label>
+            <label>Antal gäster<input type="number" name="guests" min="10" placeholder="Minst 10" required /></label>
+            <label class="full">
+              Typ av event
+              <select name="event" required>
+                <option value="">Välj ett alternativ</option>
+                <option>Företagsevent</option>
+                <option>Bröllop</option>
+                <option>Födelsedag</option>
+                <option>Möte eller konferens</option>
+                <option>Annat</option>
+              </select>
+            </label>
+            <label class="full">Önskemål<textarea name="message" rows="3" placeholder="Berätta om mat, allergier och leverans"></textarea></label>
+          </div>
+          <label class="consent"><input type="checkbox" required /> Jag godkänner att Sinlapa kontaktar mig om min förfrågan.</label>
+          <button class="button" type="submit">Skicka förfrågan</button>
+          <p class="form-response" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="section booking-section" id="boka" aria-labelledby="booking-title">
+        <div class="booking-copy">
+          <p class="eyebrow">Boka bord</p>
+          <h2 id="booking-title">Din plats vid<br />bordet väntar.</h2>
+          <p>
+            Middag för två, lunch med kollegorna eller en kväll med vänner?
+            Skicka din önskan så återkommer vi med bekräftelse.
+          </p>
+          <div class="booking-note">
+            <strong>Större sällskap?</strong>
+            <span>Ring oss på <a href="tel:+46760077599">0760-07 75 99</a> för bokningar över 8 personer.</span>
+          </div>
+        </div>
+        <form class="booking-form demo-form" aria-label="Bordsbokning">
+          <div class="form-grid">
+            <label>Namn<input type="text" name="booking-name" autocomplete="name" required /></label>
+            <label>Telefon<input type="tel" name="phone" autocomplete="tel" required /></label>
+            <label>E-post<input type="email" name="booking-email" autocomplete="email" required /></label>
+            <label>Antal personer<input type="number" name="party" min="1" max="8" required /></label>
+            <label>Datum<input type="date" name="booking-date" required /></label>
+            <label>
+              Önskad tid
+              <select name="time" required>
+                <option value="">Välj tid</option>
+                <option>11:30</option><option>12:00</option><option>12:30</option>
+                <option>17:00</option><option>17:30</option><option>18:00</option>
+                <option>18:30</option><option>19:00</option><option>19:30</option>
+              </select>
+            </label>
+            <label class="full">Önskemål<textarea name="booking-message" rows="3" placeholder="Barnstol, allergier eller annat vi bör känna till"></textarea></label>
+          </div>
+          <label class="consent"><input type="checkbox" required /> Jag godkänner att Sinlapa kontaktar mig om bokningen.</label>
+          <button class="button" type="submit">Skicka bokningsförfrågan</button>
+          <small>Bokningen gäller först när du har fått en bekräftelse från oss.</small>
+          <p class="form-response" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
+        <div class="contact-main">
+          <p class="eyebrow">Besök oss</p>
+          <h2 id="contact-title">Thai fusion<br />mitt i Malmö.</h2>
+          <address>
+            Amiralsgatan 8K<br />
+            211 55 Malmö
+          </address>
+          <div class="contact-links">
+            <a href="tel:+46760077599">0760-07 75 99</a>
+            <a href="mailto:info@sinlapa.se">info@sinlapa.se</a>
+          </div>
+          <a class="button" href="https://maps.google.com/?q=Amiralsgatan+8K+Malmö" target="_blank" rel="noreferrer">Öppna i Google Maps</a>
+          <p class="travel-note">Nära Quality Hotel och bara några minuter från Gustav Adolfs torg.</p>
+        </div>
+        <div class="hours">
+          <h3>Öppettider</h3>
+          <dl>
+            <div><dt>Måndag–torsdag</dt><dd>11–14, 16–20</dd></div>
+            <div><dt>Fredag</dt><dd>11–21</dd></div>
+            <div><dt>Lördag</dt><dd>12–21</dd></div>
+            <div><dt>Söndag</dt><dd>Stängt</dd></div>
+          </dl>
+          <div class="hours-lunch">
+            <span>Lunch</span>
+            <strong>Måndag–fredag 11–14</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="/assets/logo.webp" alt="Sinlapa" width="136" height="56" />
+      <p>Thai twist. Sinlapa style.</p>
+      <nav aria-label="Sidfot">
+        <a href="#meny">Meny</a>
+        <a href="#catering">Catering</a>
+        <a href="#boka">Boka bord</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Sinlapa AB</span>
+        <span>Amiralsgatan 8K, Malmö</span>
+      </div>
+    </footer>
+
+    <div class="mobile-actions" aria-label="Snabbåtgärder">
+      <a href="tel:+46760077599"><span aria-hidden="true">☎</span> Ring</a>
+      <a href="https://maps.google.com/?q=Amiralsgatan+8K+Malmö" target="_blank" rel="noreferrer"><span aria-hidden="true">⌖</span> Hitta hit</a>
+      <button class="order-open" type="button"><span aria-hidden="true">♨</span> Beställ</button>
+    </div>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">
+      <button class="dialog-close" type="button" aria-label="Stäng beställningsval">×</button>
+      <p class="eyebrow">Beställ mat</p>
+      <h2 id="order-title">Hur vill du beställa?</h2>
+      <p>Välj leveranspartner eller ring oss för avhämtning.</p>
+      <div class="provider-list">
+        <a href="#" data-placeholder><strong>Foodora</strong><span>Leverans eller avhämtning →</span></a>
+        <a href="#" data-placeholder><strong>Wolt</strong><span>Leverans eller avhämtning →</span></a>
+        <a href="#" data-placeholder><strong>Uber Eats</strong><span>Leverans →</span></a>
+        <a href="tel:+46760077599"><strong>Ring Sinlapa</strong><span>Beställ för avhämtning →</span></a>
+      </div>
+      <small>Leveranslänkarna kopplas in inför lansering.</small>
+    </dialog>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>

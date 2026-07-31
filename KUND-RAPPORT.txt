@@ -1,0 +1,186 @@
+SINLAPA – RAPPORT OM DEN NYA WEBBSIDAN
+Datum: 31 juli 2026
+
+Sammanfattning
+--------------
+Sinlapas webbplats har byggts om till en modern och tydlig restaurangsida.
+Målet har varit att göra det enklare för gäster att:
+
+- förstå vad Sinlapa erbjuder
+- se lunch och utvalda rätter
+- beställa mat
+- boka bord
+- fråga om catering
+- hitta till restaurangen
+
+Den nya sidan är snabb, mobilanpassad och har behållit Sinlapas mörka,
+varma stil med orange detaljer.
+
+Förhandsvisning:
+https://sinlapa-preview.pages.dev
+
+
+DET HÄR HAR FÖRBÄTTRATS
+=======================
+
+1. En tydligare start
+---------------------
+Den tidigare startsidan började med en stor bild, men förklarade inte direkt
+vad Sinlapa är eller vad besökaren ska göra.
+
+Den nya sidan berättar direkt att Sinlapa erbjuder Thai fusion i Malmö.
+Besökaren får tydliga knappar för att se menyn och beställa mat.
+
+
+2. Lunchinformationen är lätt att hitta
+----------------------------------------
+Lunchens pris, tider och vad som ingår syns nu tydligt.
+Det finns även en särskild plats för veckans rätter och vegetariska alternativ.
+
+Detta gör det enklare för återkommande lunchgäster att snabbt hitta rätt
+information.
+
+
+3. Menyn visas direkt på sidan
+------------------------------
+Utvalda rätter visas med:
+
+- bild
+- namn
+- kort beskrivning
+- pris
+- information om stark mat
+- vegetariska och veganska alternativ
+
+Besökaren kan även filtrera menyn, till exempel för att bara visa veganska
+eller starka rätter.
+
+Detta är betydligt enklare än att behöva öppna en separat PDF-fil.
+
+
+4. En tydlig väg till beställning
+---------------------------------
+Det finns nu en beställningsknapp på flera viktiga platser på sidan.
+
+När besökaren klickar öppnas ett enkelt val mellan:
+
+- Foodora
+- Wolt
+- Uber Eats
+- telefonbeställning för avhämtning
+
+Länkarna till leveransföretagen är tillfälliga och ska kopplas in före den
+slutliga lanseringen.
+
+
+5. Bättre information för mobilbesökare
+----------------------------------------
+Sidan är anpassad för mobiltelefoner och surfplattor.
+
+På mobil finns alltid tre tydliga val längst ner:
+
+- Ring
+- Hitta hit
+- Beställ
+
+Det gör att gästen inte behöver leta efter viktig information.
+
+
+6. Bättre bordsbokning
+----------------------
+Bokningsdelen innehåller nu tydliga fält för:
+
+- namn
+- telefon
+- e-post
+- antal personer
+- datum
+- tid
+- särskilda önskemål
+
+Det står också tydligt att större sällskap ska ringa och att bokningen måste
+bekräftas av restaurangen.
+
+
+7. Bättre cateringförfrågningar
+--------------------------------
+Cateringdelen förklarar tydligare vad Sinlapa erbjuder.
+
+Kunden kan fylla i:
+
+- datum
+- antal gäster
+- typ av event
+- matönskemål
+- allergier
+- behov av leverans
+
+Det gör det enklare för Sinlapa att lämna ett bra förslag och pris.
+
+
+8. Fler anledningar att känna förtroende
+-----------------------------------------
+Den nya sidan visar Sinlapas betyg och flera kundomdömen.
+
+Kanlayas berättelse och kopplingen mellan mat och konst har också fått en
+tydligare och mer personlig plats.
+
+
+9. Öppettider och vägbeskrivning
+---------------------------------
+Adress, telefon, e-post, öppettider och lunchöppettider finns samlade på ett
+ställe.
+
+Det finns även en tydlig knapp som öppnar Google Maps.
+På startsidan visas dessutom om restaurangen är öppen just nu.
+
+
+10. En sida som är lättare för fler personer att använda
+---------------------------------------------------------
+Texten har blivit tydligare och alla formulär har ordentliga rubriker.
+Sidan går bättre att använda med tangentbord och hjälpmedel för personer med
+nedsatt syn.
+
+Bilder har beskrivningar och sidan har en logisk ordning på rubrikerna.
+
+
+11. Bättre möjlighet att synas på Google
+-----------------------------------------
+Sidan berättar tydligare för Google:
+
+- att Sinlapa är en restaurang
+- att restaurangen ligger i Malmö
+- vilken typ av mat som serveras
+- adress, telefon och öppettider
+
+Det finns även en fungerande sidkarta som hjälper Google att hitta innehållet.
+
+
+12. Snabb och säker publicering
+--------------------------------
+Sidan ligger på Cloudflare, vilket ger snabb laddning och en stabil
+förhandsvisningslänk.
+
+Grundläggande säkerhetsinställningar och snabb bildladdning är på plats.
+
+
+VIKTIGT FÖRE SLUTLIG LANSERING
+==============================
+
+Följande behöver bekräftas eller kopplas in av Sinlapa:
+
+1. Kontrollera att alla maträtter, priser och lunchtexter är aktuella.
+2. Kontrollera att öppettiderna är korrekta.
+3. Lägg in de riktiga länkarna till Foodora, Wolt och Uber Eats.
+4. Koppla boknings- och cateringformulären till rätt e-postadress eller system.
+5. Godkänn texter, bilder och kundomdömen.
+6. Bestäm vilken riktig webbadress sidan ska använda.
+
+
+RESULTAT
+========
+
+Sinlapa har nu en tydligare, mer säljande och mer lättanvänd webbplats.
+Gäster hittar snabbare till meny, lunch, bokning, beställning och kontakt.
+
+Sidan är klar som förhandsvisning och kan visas för beslut och godkännande.
