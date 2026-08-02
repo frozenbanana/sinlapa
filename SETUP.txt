@@ -39,14 +39,18 @@ Paket (för mötet)
 -----------------
 Engångs: 2 500 kr (migrering från WordPress, färdigställande och lansering)
 
-1) Drift + hjälp – 349 kr/mån
-   Hosting, formulär, tekniskt underhåll, statistik, support och
-   upp till 2 mindre uppdateringar/mån via mejl.
+1) Drift + egen admin – 349 kr/mån (eller 3 900 kr/år)
+   Hosting, formulär, tekniskt underhåll, statistik, prioriterad support,
+   upp till 2 mindre uppdateringar/mån via mejl samt mobilanpassad /admin
+   för omedelbara ändringar av lunch, bilder och öppettider.
 
-2) Drift + egen admin – 549 kr/mån
-   Allt i Drift + mobilanpassad /admin för omedelbara ändringar av lunch,
-   bilder och öppettider samt prioriterad support.
+2) Admin + synlighet – 549 kr/mån (eller 5 900 kr/år)
+   Allt i paket 1 + startoptimering av Google Business Profile, rätt meny-,
+   boknings-, catering- och leveranslänkar samt Google-recensionslänk/QR.
+   Varje månad: 1 Google-uppdatering, kontroll av viktig profilinformation,
+   kort synlighetsrapport och 1 konkret förbättringsrekommendation.
 
-Marknadsföring ingår inte nu, men kan erbjudas separat senare.
+Ingår inte i paket 2: hantering av sociala medier, foto/video, betald
+annonsering, annonsbudget eller garantier om placering, trafik och försäljning.
 
 Offertsida (ej i huvudmenyn): /erbjudande
