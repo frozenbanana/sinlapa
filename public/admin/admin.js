@@ -122,9 +122,17 @@ function hoursDayTemplate(key, label, day) {
 function periodTemplate(period = { open: "11:00", close: "14:00" }) {
   return `
     <div class="hours-period" data-period>
-      <label>Öppnar<input type="time" data-open value="${escapeAttr(period.open || "11:00")}" /></label>
-      <label>Stänger<input type="time" data-close value="${escapeAttr(period.close || "14:00")}" /></label>
-      <button class="chip-btn" type="button" data-remove-period>Ta bort</button>
+      <div class="hours-period-times">
+        <label>
+          <span>Från</span>
+          <input type="time" data-open value="${escapeAttr(period.open || "11:00")}" inputmode="numeric" />
+        </label>
+        <label>
+          <span>Till</span>
+          <input type="time" data-close value="${escapeAttr(period.close || "14:00")}" inputmode="numeric" />
+        </label>
+      </div>
+      <button class="hours-remove" type="button" data-remove-period>Ta bort tidspass</button>
     </div>
   `;
 }
@@ -353,7 +361,7 @@ hoursEditor?.addEventListener("click", (event) => {
     const day = event.target.closest("[data-day]");
     day.querySelector("[data-periods]").insertAdjacentHTML("beforeend", periodTemplate());
   }
-  if (event.target.matches("[data-remove-period]")) {
+  if (event.target.closest("[data-remove-period]")) {
     event.target.closest("[data-period]")?.remove();
   }
 });
