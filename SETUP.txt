@@ -37,9 +37,16 @@ Befintliga webbplatsbilder finns också valbara i galleriet.
 
 Paket (för mötet)
 -----------------
-Engångs: 2 500 kr (rebuild/lansering)
+Engångs: 2 500 kr (migrering från WordPress, färdigställande och lansering)
 
-1) Drift  – 349 kr/mån (formulär, hosting, statistik, 2 uppdateringar/mån via mail)
-2) Admin  – 549 kr/mån (allt i Drift + /admin för lunch & öppettider)
+1) Drift + hjälp – 349 kr/mån
+   Hosting, formulär, tekniskt underhåll, statistik, support och
+   upp till 2 mindre uppdateringar/mån via mejl.
+
+2) Drift + egen admin – 549 kr/mån
+   Allt i Drift + mobilanpassad /admin för omedelbara ändringar av lunch,
+   bilder och öppettider samt prioriterad support.
+
+Marknadsföring ingår inte nu, men kan erbjudas separat senare.
 
 Offertsida (ej i huvudmenyn): /erbjudande
