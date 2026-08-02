@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /erbjudande.html
 
 Sitemap: https://sinlapa-preview.pages.dev/sitemap.xml

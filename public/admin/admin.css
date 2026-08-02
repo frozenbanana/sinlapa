@@ -1,0 +1,179 @@
+.admin-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(240, 107, 37, 0.16), transparent 34%),
+    linear-gradient(180deg, #1d1612 0%, #120e0c 48%, #241911 100%);
+  color: var(--cream);
+}
+
+.admin-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 80px;
+}
+
+.admin-header,
+.admin-section-head,
+.admin-header-actions,
+.admin-save-bar {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.admin-header {
+  margin-bottom: 28px;
+}
+
+.admin-header h1,
+.admin-card h2 {
+  margin: 0;
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 550;
+  letter-spacing: -0.03em;
+}
+
+.admin-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.admin-card {
+  background: rgba(251, 247, 240, 0.96);
+  color: var(--ink);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.admin-card p,
+.admin-section-head p,
+.admin-form small {
+  color: rgba(23, 18, 15, 0.72);
+}
+
+.admin-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.admin-form small {
+  font-weight: 500;
+}
+
+.admin-form input,
+.admin-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: white;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-workspace .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.admin-workspace .form-grid .full {
+  grid-column: 1 / -1;
+}
+
+.lunch-editor,
+.hours-editor {
+  display: grid;
+  gap: 14px;
+}
+
+.lunch-item,
+.hours-day {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.lunch-item-head,
+.hours-day-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.hours-periods {
+  display: grid;
+  gap: 10px;
+}
+
+.hours-period {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.admin-save-bar {
+  position: sticky;
+  bottom: 16px;
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  background: rgba(23, 18, 15, 0.92);
+  color: var(--cream);
+  backdrop-filter: blur(10px);
+  align-items: center;
+}
+
+.admin-save-bar .form-response {
+  margin: 0;
+  color: rgba(251, 247, 240, 0.84);
+}
+
+.admin-body .button-ghost {
+  color: var(--cream);
+  border-color: rgba(251, 247, 240, 0.28);
+}
+
+.admin-card .button-ghost {
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.chip-btn {
+  border: 0;
+  background: transparent;
+  color: var(--orange-dark);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 820px) {
+  .admin-header,
+  .admin-section-head,
+  .admin-save-bar {
+    flex-direction: column;
+  }
+
+  .admin-workspace .form-grid,
+  .hours-period {
+    grid-template-columns: 1fr;
+  }
+}

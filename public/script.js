@@ -88,52 +88,213 @@ const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
   .split("T")[0];
 dateInputs.forEach((input) => input.setAttribute("min", localDate));
 
-document.querySelectorAll(".demo-form").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const response = form.querySelector(".form-response");
-    if (response) {
-      response.textContent =
-        "Tack! Formuläret är klart för koppling till Sinlapas e-postsystem inför lansering.";
-    }
-  });
-});
+const DAY_ORDER = [
+  ["monday", "Måndag"],
+  ["tuesday", "Tisdag"],
+  ["wednesday", "Onsdag"],
+  ["thursday", "Torsdag"],
+  ["friday", "Fredag"],
+  ["saturday", "Lördag"],
+  ["sunday", "Söndag"]
+];
 
-function updateOpeningStatus() {
+let siteConfig = null;
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function minutesFromTime(value) {
+  const [hours, minutes] = String(value || "00:00").split(":").map(Number);
+  return hours * 60 + minutes;
+}
+
+function formatCompactTime(value) {
+  return String(value || "").replace(/^0/, "").replace(":00", "");
+}
+
+function applyLunch(lunch) {
+  if (!lunch) return;
+
+  const weekLabel = document.querySelector("#lunch-week-label");
+  const title = document.querySelector("#lunch-title-text");
+  const price = document.querySelector("#lunch-price");
+  const included = document.querySelector("#lunch-included");
+  const list = document.querySelector("#lunch-list");
+  const quickHours = document.querySelector("#quick-lunch-hours");
+  const quickPrice = document.querySelector("#quick-lunch-price");
+  const contactLunch = document.querySelector("#contact-lunch-hours");
+
+  if (weekLabel) weekLabel.textContent = lunch.weekLabel || "Den här veckan";
+  if (title) title.textContent = lunch.title || "Lunch hos Sinlapa";
+  if (price) price.textContent = lunch.price || "129 kr";
+  if (included) included.textContent = lunch.included || "";
+  if (contactLunch) contactLunch.textContent = lunch.hoursLabel || "";
+  if (quickHours) quickHours.textContent = lunch.hoursLabel || "Vardagar 11–14";
+  if (quickPrice) {
+    const priceText = lunch.price || "129 kr";
+    quickPrice.textContent = priceText.toLowerCase().includes("lunch")
+      ? `${priceText} inkl. soppa`
+      : `Lunch ${priceText} inkl. soppa`;
+  }
+
+  if (list && Array.isArray(lunch.items)) {
+    list.innerHTML = lunch.items.map((item) => `
+      <article>
+        <div>
+          ${item.tag ? `<span class="menu-tag">${escapeHtml(item.tag)}</span>` : ""}
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.description || "")}</p>
+        </div>
+        ${item.note ? `<span class="diet">${escapeHtml(item.note)}</span>` : ""}
+      </article>
+    `).join("");
+  }
+}
+
+function applyHours(hours) {
+  if (!hours) return;
+
+  const list = document.querySelector("#hours-list");
+  if (!list) return;
+
+  const groups = [];
+  let current = null;
+
+  for (const [key, label] of DAY_ORDER) {
+    const day = hours[key] || { label: "Stängt", closed: true };
+    const value = day.closed ? "Stängt" : (day.label || "Stängt");
+    if (current && current.value === value) {
+      current.end = label;
+      continue;
+    }
+    current = { start: label, end: label, value };
+    groups.push(current);
+  }
+
+  list.innerHTML = groups.map((group) => {
+    const title = group.start === group.end ? group.start : `${group.start}–${group.end.toLowerCase()}`;
+    return `<div><dt>${escapeHtml(title)}</dt><dd>${escapeHtml(group.value)}</dd></div>`;
+  }).join("");
+}
+
+function updateOpeningStatus(hours) {
   const status = document.querySelector("#open-status");
   if (!status) return;
 
   const now = new Date();
-  const day = now.getDay();
+  const dayIndex = now.getDay();
+  const dayKey = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"][dayIndex];
   const minutes = now.getHours() * 60 + now.getMinutes();
-  const schedule = {
-    1: [[660, 840], [960, 1200]],
-    2: [[660, 840], [960, 1200]],
-    3: [[660, 840], [960, 1200]],
-    4: [[660, 840], [960, 1200]],
-    5: [[660, 1260]],
-    6: [[720, 1260]]
-  };
-  const periods = schedule[day] ?? [];
-  const currentPeriod = periods.find(([start, end]) => minutes >= start && minutes < end);
-  const nextPeriod = periods.find(([start]) => minutes < start);
+
+  let periods = [];
+  if (hours?.[dayKey]) {
+    const day = hours[dayKey];
+    if (day.closed || !day.periods?.length) {
+      status.textContent = dayIndex === 0 ? "Stängt idag" : "Stängt för idag";
+      return;
+    }
+    periods = day.periods.map((period) => ({
+      start: minutesFromTime(period.open),
+      end: minutesFromTime(period.close),
+      openLabel: formatCompactTime(period.open),
+      closeLabel: formatCompactTime(period.close)
+    }));
+  } else {
+    const fallback = {
+      1: [[660, 840], [960, 1200]],
+      2: [[660, 840], [960, 1200]],
+      3: [[660, 840], [960, 1200]],
+      4: [[660, 840], [960, 1200]],
+      5: [[660, 1260]],
+      6: [[720, 1260]]
+    };
+    periods = (fallback[dayIndex] || []).map(([start, end]) => ({
+      start,
+      end,
+      openLabel: `${String(Math.floor(start / 60)).padStart(2, "0")}:${String(start % 60).padStart(2, "0")}`.replace(/^0/, "").replace(":00", ""),
+      closeLabel: `${String(Math.floor(end / 60)).padStart(2, "0")}:${String(end % 60).padStart(2, "0")}`.replace(/^0/, "").replace(":00", "")
+    }));
+  }
+
+  const currentPeriod = periods.find((period) => minutes >= period.start && minutes < period.end);
+  const nextPeriod = periods.find((period) => minutes < period.start);
 
   if (currentPeriod) {
-    const closingHour = String(Math.floor(currentPeriod[1] / 60)).padStart(2, "0");
-    const closingMinute = String(currentPeriod[1] % 60).padStart(2, "0");
-    status.textContent = `Öppet till ${closingHour}:${closingMinute}`;
+    status.textContent = `Öppet till ${currentPeriod.closeLabel}`;
     return;
   }
 
   if (nextPeriod) {
-    const openingHour = String(Math.floor(nextPeriod[0] / 60)).padStart(2, "0");
-    const openingMinute = String(nextPeriod[0] % 60).padStart(2, "0");
-    status.textContent = `Öppnar ${openingHour}:${openingMinute}`;
+    status.textContent = `Öppnar ${nextPeriod.openLabel}`;
     return;
   }
 
-  status.textContent = day === 0 ? "Stängt idag" : "Stängt för idag";
+  status.textContent = dayIndex === 0 ? "Stängt idag" : "Stängt för idag";
 }
 
-updateOpeningStatus();
+async function loadSiteConfig() {
+  try {
+    const response = await fetch("/api/site-config", { headers: { accept: "application/json" } });
+    if (!response.ok) throw new Error("config fetch failed");
+    siteConfig = await response.json();
+    applyLunch(siteConfig.lunch);
+    applyHours(siteConfig.hours);
+    updateOpeningStatus(siteConfig.hours);
+  } catch {
+    updateOpeningStatus(null);
+  }
+}
+
+async function submitForm(form, type) {
+  const responseEl = form.querySelector(".form-response");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const formData = new FormData(form);
+  const payload = { type };
+
+  for (const [key, value] of formData.entries()) {
+    payload[key] = String(value).trim();
+  }
+
+  if (responseEl) responseEl.textContent = "Skickar…";
+  if (submitButton) submitButton.disabled = true;
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.error || "Kunde inte skicka formuläret.");
+    }
+    if (responseEl) {
+      responseEl.textContent = data.message || "Tack! Vi återkommer snart.";
+    }
+    form.reset();
+  } catch (error) {
+    if (responseEl) {
+      responseEl.textContent = error.message || "Något gick fel. Ring oss gärna istället.";
+    }
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
+}
+
+document.querySelector("#booking-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  submitForm(event.currentTarget, "booking");
+});
+
+document.querySelector("#catering-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  submitForm(event.currentTarget, "catering");
+});
+
+loadSiteConfig();
 document.querySelector("#year").textContent = new Date().getFullYear();

@@ -1,0 +1,38 @@
+SINLAPA – ADMIN, FORMULÄR & PAKET
+=================================
+
+Lokalt
+------
+1. cp .env.example .dev.vars
+2. Sätt ADMIN_PASSWORD, NOTIFY_EMAIL och (för skarp mail) RESEND_API_KEY
+3. npm install
+4. npm run dev
+5. Öppna http://localhost:8788/
+   Admin: http://localhost:8788/admin/
+   Offert: http://localhost:8788/erbjudande.html
+
+Miljövariabler (.dev.vars / Pages Secrets)
+------------------------------------------
+NOTIFY_EMAIL=info@sinlapa.se
+FROM_EMAIL=Sinlapa Webb <onboarding@resend.dev>
+RESEND_API_KEY=re_xxx
+ADMIN_PASSWORD=välj-ett-starkt-lösen
+
+Utan RESEND_API_KEY loggas mail lokalt (formulären svarar ändå OK i dev).
+
+Cloudflare Pages
+----------------
+1. Skapa KV-namespace, t.ex. sinlapa-site-config
+2. Lägg in id/preview_id i wrangler.toml
+3. Bind samma KV som SITE_CONFIG i Pages-projektet
+4. Sätt secrets ovan i Pages → Settings → Variables and Secrets
+5. Deploy: npm run deploy
+
+Paket (för mötet)
+-----------------
+Engångs: 2 500 kr (rebuild/lansering)
+
+1) Drift  – 349 kr/mån (formulär, hosting, statistik, 2 uppdateringar/mån via mail)
+2) Admin  – 549 kr/mån (allt i Drift + /admin för lunch & öppettider)
+
+Offertsida (ej i huvudmenyn): /erbjudande.html

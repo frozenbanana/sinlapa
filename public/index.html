@@ -127,7 +127,10 @@
         </div>
         <div class="quick-item">
           <span class="quick-icon" aria-hidden="true">♨</span>
-          <div><small>Vardagar 11–14</small><strong>Lunch 129 kr inkl. soppa</strong></div>
+          <div>
+            <small id="quick-lunch-hours">Vardagar 11–14</small>
+            <strong id="quick-lunch-price">Lunch 129 kr inkl. soppa</strong>
+          </div>
         </div>
         <a class="text-link" href="#kontakt">Hitta hit <span aria-hidden="true">↗</span></a>
       </section>
@@ -145,11 +148,11 @@
         </div>
         <div class="lunch-panel">
           <div class="lunch-date">
-            <small>Den här veckan</small>
-            <strong>Lunch hos Sinlapa</strong>
-            <span>129 kr</span>
+            <small id="lunch-week-label">Den här veckan</small>
+            <strong id="lunch-title-text">Lunch hos Sinlapa</strong>
+            <span id="lunch-price">129 kr</span>
           </div>
-          <div class="lunch-list">
+          <div class="lunch-list" id="lunch-list">
             <article>
               <div>
                 <span class="menu-tag">Populär</span>
@@ -169,7 +172,7 @@
           </div>
           <div class="lunch-note">
             <strong>Alltid inkluderat</strong>
-            <span>Husets soppa · Vatten · Kaffe</span>
+            <span id="lunch-included">Husets soppa · Vatten · Kaffe</span>
           </div>
         </div>
       </section>
@@ -321,7 +324,7 @@
             <li>Leverans och presentation efter överenskommelse</li>
           </ul>
         </div>
-        <form class="lead-form demo-form" aria-labelledby="quote-title">
+        <form class="lead-form" id="catering-form" aria-labelledby="quote-title">
           <div class="form-heading">
             <small>Snabb förfrågan</small>
             <h3 id="quote-title">Berätta om ert event</h3>
@@ -363,13 +366,13 @@
             <span>Ring oss på <a href="tel:+46760077599">0760-07 75 99</a> för bokningar över 8 personer.</span>
           </div>
         </div>
-        <form class="booking-form demo-form" aria-label="Bordsbokning">
+        <form class="booking-form" id="booking-form" aria-label="Bordsbokning">
           <div class="form-grid">
-            <label>Namn<input type="text" name="booking-name" autocomplete="name" required /></label>
+            <label>Namn<input type="text" name="name" autocomplete="name" required /></label>
             <label>Telefon<input type="tel" name="phone" autocomplete="tel" required /></label>
-            <label>E-post<input type="email" name="booking-email" autocomplete="email" required /></label>
+            <label>E-post<input type="email" name="email" autocomplete="email" required /></label>
             <label>Antal personer<input type="number" name="party" min="1" max="8" required /></label>
-            <label>Datum<input type="date" name="booking-date" required /></label>
+            <label>Datum<input type="date" name="date" required /></label>
             <label>
               Önskad tid
               <select name="time" required>
@@ -379,7 +382,7 @@
                 <option>18:30</option><option>19:00</option><option>19:30</option>
               </select>
             </label>
-            <label class="full">Önskemål<textarea name="booking-message" rows="3" placeholder="Barnstol, allergier eller annat vi bör känna till"></textarea></label>
+            <label class="full">Önskemål<textarea name="message" rows="3" placeholder="Barnstol, allergier eller annat vi bör känna till"></textarea></label>
           </div>
           <label class="consent"><input type="checkbox" required /> Jag godkänner att Sinlapa kontaktar mig om bokningen.</label>
           <button class="button" type="submit">Skicka bokningsförfrågan</button>
@@ -405,7 +408,7 @@
         </div>
         <div class="hours">
           <h3>Öppettider</h3>
-          <dl>
+          <dl id="hours-list">
             <div><dt>Måndag–torsdag</dt><dd>11–14, 16–20</dd></div>
             <div><dt>Fredag</dt><dd>11–21</dd></div>
             <div><dt>Lördag</dt><dd>12–21</dd></div>
@@ -413,7 +416,7 @@
           </dl>
           <div class="hours-lunch">
             <span>Lunch</span>
-            <strong>Måndag–fredag 11–14</strong>
+            <strong id="contact-lunch-hours">Måndag–fredag 11–14</strong>
           </div>
         </div>
       </section>

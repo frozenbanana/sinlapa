@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Sinlapa Admin – Lunch & öppettider</title>
+    <link rel="stylesheet" href="/styles.css?v=20260802-admin" />
+    <link rel="stylesheet" href="/admin/admin.css?v=20260802" />
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Sinlapa admin</p>
+          <h1>Lunch & öppettider</h1>
+        </div>
+        <div class="admin-header-actions">
+          <a class="text-link" href="/" target="_blank" rel="noreferrer">Öppna webbplatsen ↗</a>
+          <button class="button button-ghost" type="button" id="logout-btn" hidden>Logga ut</button>
+        </div>
+      </header>
+
+      <section class="admin-card" id="login-panel">
+        <h2>Logga in</h2>
+        <p>Ange adminlösenordet för att uppdatera veckans lunch och öppettider.</p>
+        <form id="login-form" class="admin-form">
+          <label>
+            Lösenord
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <button class="button" type="submit">Logga in</button>
+          <p class="form-response" id="login-response" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="admin-workspace" id="editor-panel" hidden>
+        <form id="config-form" class="admin-form">
+          <div class="admin-grid">
+            <section class="admin-card">
+              <div class="admin-section-head">
+                <h2>Veckans lunch</h2>
+                <p>Det här visas i lunchblocket på startsidan.</p>
+              </div>
+
+              <div class="form-grid">
+                <label>Rubrik<small>t.ex. Lunch hos Sinlapa</small><input name="lunch-title" required /></label>
+                <label>Veckoetikett<small>t.ex. Den här veckan</small><input name="lunch-week-label" required /></label>
+                <label>Pris<input name="lunch-price" required /></label>
+                <label>Lunchöppettider<small>text under kontakt</small><input name="lunch-hours-label" required /></label>
+                <label class="full">Alltid inkluderat<input name="lunch-included" required /></label>
+              </div>
+
+              <div class="lunch-editor" id="lunch-items"></div>
+              <button class="button button-ghost" type="button" id="add-lunch-item">Lägg till lunchrätt</button>
+            </section>
+
+            <section class="admin-card">
+              <div class="admin-section-head">
+                <h2>Öppettider</h2>
+                <p>Uppdatera tider per dag. Lämna stängt för lediga dagar.</p>
+              </div>
+              <div class="hours-editor" id="hours-editor"></div>
+            </section>
+          </div>
+
+          <div class="admin-save-bar">
+            <p class="form-response" id="save-response" role="status" aria-live="polite"></p>
+            <button class="button" type="submit">Spara ändringar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="/admin/admin.js" type="module"></script>
+  </body>
+</html>

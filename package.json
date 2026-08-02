@@ -1,0 +1,13 @@
+{
+  "name": "sinlapa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev",
+    "deploy": "wrangler pages deploy",
+    "check": "node --check public/script.js && node --check public/admin/admin.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.118.0"
+  }
+}
