@@ -9,7 +9,7 @@ Lokalt
 4. npm run dev
 5. Öppna http://localhost:8788/
    Admin: http://localhost:8788/admin/
-   Offert: http://localhost:8788/erbjudande.html
+   Offert: http://localhost:8788/erbjudande
 
 Miljövariabler (.dev.vars / Pages Secrets)
 ------------------------------------------
@@ -23,10 +23,17 @@ Utan RESEND_API_KEY loggas mail lokalt (formulären svarar ändå OK i dev).
 Cloudflare Pages
 ----------------
 1. Skapa KV-namespace, t.ex. sinlapa-site-config
-2. Lägg in id/preview_id i wrangler.toml
-3. Bind samma KV som SITE_CONFIG i Pages-projektet
-4. Sätt secrets ovan i Pages → Settings → Variables and Secrets
-5. Deploy: npm run deploy
+2. Skapa R2-bucket, t.ex. sinlapa-media
+3. Lägg in KV-id:n i wrangler.toml och behåll MEDIA-bindingen
+4. Bind SITE_CONFIG (KV) och MEDIA (R2) i Pages-projektet
+5. Sätt secrets ovan i Pages → Settings → Variables and Secrets
+6. Deploy: npm run deploy
+
+Bilder
+------
+Admin → fliken Bilder, eller "Välj / ladda upp" på en lunchrätt.
+Uppladdningar sparas i R2 och serveras via /media/...
+Befintliga webbplatsbilder finns också valbara i galleriet.
 
 Paket (för mötet)
 -----------------
@@ -35,4 +42,4 @@ Engångs: 2 500 kr (rebuild/lansering)
 1) Drift  – 349 kr/mån (formulär, hosting, statistik, 2 uppdateringar/mån via mail)
 2) Admin  – 549 kr/mån (allt i Drift + /admin för lunch & öppettider)
 
-Offertsida (ej i huvudmenyn): /erbjudande.html
+Offertsida (ej i huvudmenyn): /erbjudande

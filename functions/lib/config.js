@@ -134,7 +134,9 @@ export function normalizeConfig(input = {}) {
       tag: String(item?.tag || "").trim(),
       name: String(item?.name || "").trim(),
       description: String(item?.description || "").trim(),
-      note: String(item?.note || "").trim()
+      note: String(item?.note || "").trim(),
+      imageUrl: String(item?.imageUrl || "").trim(),
+      imageKey: String(item?.imageKey || "").trim()
     })).filter((item) => item.name)
   };
 

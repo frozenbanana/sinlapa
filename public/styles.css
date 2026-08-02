@@ -477,8 +477,27 @@ h2 em::after {
   gap: 24px;
 }
 
+.lunch-list article.has-image {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
 .lunch-list article:last-child {
   border-bottom: 0;
+}
+
+.lunch-image {
+  width: min(150px, 34vw);
+  min-height: 120px;
+  object-fit: cover;
+  border-radius: 18px;
+  flex: 0 0 auto;
+  background: #ebe2d6;
+}
+
+.lunch-copy {
+  min-width: 0;
+  flex: 1;
 }
 
 .lunch-list h3 {
@@ -491,6 +510,13 @@ h2 em::after {
   margin-bottom: 0;
   color: #766a62;
   font-size: 0.9rem;
+}
+
+.lunch-list .diet {
+  display: inline-block;
+  margin-top: 10px;
+  max-width: none;
+  text-align: left;
 }
 
 .menu-tag {
@@ -1339,6 +1365,17 @@ textarea {
     flex-direction: column;
     padding: 25px 0;
     gap: 10px;
+  }
+
+  .lunch-list article.has-image {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .lunch-image {
+    width: 96px;
+    min-height: 96px;
+    border-radius: 14px;
   }
 
   .diet {

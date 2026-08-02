@@ -144,13 +144,18 @@ function applyLunch(lunch) {
 
   if (list && Array.isArray(lunch.items)) {
     list.innerHTML = lunch.items.map((item) => `
-      <article>
-        <div>
+      <article class="${item.imageUrl ? "has-image" : ""}">
+        ${
+          item.imageUrl
+            ? `<img class="lunch-image" src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}" loading="lazy" />`
+            : ""
+        }
+        <div class="lunch-copy">
           ${item.tag ? `<span class="menu-tag">${escapeHtml(item.tag)}</span>` : ""}
           <h3>${escapeHtml(item.name)}</h3>
           <p>${escapeHtml(item.description || "")}</p>
+          ${item.note ? `<span class="diet">${escapeHtml(item.note)}</span>` : ""}
         </div>
-        ${item.note ? `<span class="diet">${escapeHtml(item.note)}</span>` : ""}
       </article>
     `).join("");
   }
