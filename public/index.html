@@ -19,46 +19,192 @@
     <link rel="preload" href="/assets/hero.webp" as="image" type="image/webp" />
     <link rel="stylesheet" href="/styles.css?v=20260802-form-fix" />
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sinlapa",
+  "description": "Thai fusion-restaurang i Malmö där autentiska smaker möter modern kreativitet.",
+  "url": "https://sinlapa.se",
+  "image": "https://sinlapa.se/assets/hero.webp",
+  "servesCuisine": ["Thai", "Thai fusion", "Asian fusion"],
+  "priceRange": "$$",
+  "telephone": "+46 760 07 75 99",
+  "email": "info@sinlapa.se",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Amiralsgatan 8K",
+    "postalCode": "211 55",
+    "addressLocality": "Malmö",
+    "addressCountry": "SE"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "11:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "16:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "11:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "16:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "11:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "16:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "11:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "16:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "11:00",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "12:00",
+      "closes": "21:00"
+    }
+  ],
+  "acceptsReservations": true,
+  "menu": "https://sinlapa.se/#meny",
+  "hasMenu": {
+    "@type": "Menu",
+    "hasMenuSection": [
       {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Sinlapa",
-        "description": "Thai fusion-restaurang i Malmö där autentiska smaker möter modern kreativitet.",
-        "image": "https://sinlapa.se/wp-content/uploads/2026/07/pics-for-website-5-1086x1536.png.webp",
-        "servesCuisine": ["Thai", "Thai fusion", "Asian fusion"],
-        "priceRange": "$$",
-        "telephone": "+46 760 07 7599",
-        "email": "info@sinlapa.se",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Amiralsgatan 8K",
-          "postalCode": "211 55",
-          "addressLocality": "Malmö",
-          "addressCountry": "SE"
-        },
-        "openingHoursSpecification": [
+        "@type": "MenuSection",
+        "name": "Dagens lunch",
+        "description": "Lunch hos Sinlapa · Måndag–fredag 11–14",
+        "hasMenuItem": [
           {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-            "opens": "11:00",
-            "closes": "20:00"
+            "@type": "MenuItem",
+            "name": "Dagens Thai Fusion Bowl",
+            "description": "Kockens val med säsongens grönsaker, jasminris och husets sås."
           },
           {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Friday",
-            "opens": "11:00",
-            "closes": "21:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "12:00",
-            "closes": "21:00"
+            "@type": "MenuItem",
+            "name": "Veckans gröna bowl",
+            "description": "Färska grönsaker, örter, krispigt tillbehör och balanserad hetta."
           }
         ],
-        "acceptsReservations": true,
-        "menu": "#meny"
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "SEK",
+          "price": 129
+        }
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Bowls",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Yum Crispy Chicken",
+            "description": "Krispig kyckling, färska örter, grönsaker, ris och husets krämiga sås."
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Crispy Chicken Bowl",
+            "description": "Krispig kyckling, färska grönsaker, jordnötter och chilisås.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "SEK",
+              "price": 155
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Smårätter",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Po Pia Tod",
+            "description": "Krispiga vegetariska vårrullar serverade med sweet chilisås.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "SEK",
+              "price": 65
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Desserter",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Mango Sticky Rice",
+            "description": "Färsk mango, sticky rice och len kokosmjölk, toppad med mynta."
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Drinkar",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Thai Iced Tea",
+            "description": "Iskall thailändsk tedryck med lime och färsk mynta."
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Att dela",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Sinlapa Sharing Plate",
+            "description": "Ett urval av krispiga smårätter, edamame, örter och flera dippsåser."
+          }
+        ]
       }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "137",
+    "bestRating": "5"
+  }
+}
     </script>
   </head>
   <body>

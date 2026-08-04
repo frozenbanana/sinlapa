@@ -18,6 +18,12 @@ FROM_EMAIL=Sinlapa Webb <onboarding@resend.dev>
 RESEND_API_KEY=re_xxx
 ADMIN_PASSWORD=välj-ett-starkt-lösen
 
+# Produktionens webbadress (används i sökmotorsdata och AI-filer som llms.txt)
+SITE_URL=https://sinlapa.se
+# Valfritt: exakta kartkoordinater (lat, lng) från Google Business Profile
+SITE_LAT=
+SITE_LNG=
+
 Utan RESEND_API_KEY loggas mail lokalt (formulären svarar ändå OK i dev).
 
 Cloudflare Pages
@@ -47,6 +53,9 @@ Engångs: 2 500 kr (migrering från WordPress, färdigställande och lansering)
 2) Admin + synlighet – 549 kr/mån (eller 5 900 kr/år)
    Allt i paket 1 + startoptimering av Google Business Profile, rätt meny-,
    boknings-, catering- och leveranslänkar samt Google-recensionslänk/QR.
+   AI-anpassad information: öppettider, veckolunch och kontaktuppgifter visas
+   korrekt i AI-assistenter och nya sökverktyg, med en läsbar faktasida
+   (llms.txt + llms-full.txt). Uppdateras automatiskt från admin.
    Varje månad: 1 Google-uppdatering, kontroll av viktig profilinformation,
    kort synlighetsrapport och 1 konkret förbättringsrekommendation.
 
