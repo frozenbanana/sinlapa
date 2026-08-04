@@ -7,10 +7,7 @@ binding = "SITE_CONFIG"
 id = "d9e0ba7c99c54d95a3e75b14ff502297"
 preview_id = "d9e0ba7c99c54d95a3e75b14ff502297"
 
-# R2 (MEDIA, bildgalleriet i admin) är inte aktiverat på kontot ännu.
-# Aktivera R2 i Cloudflare-dashboarden, skapa bucket "sinlapa-media",
-# och lägg till nedanstående + bind MEDIA i Pages-projektet:
-# [[r2_buckets]]
-# binding = "MEDIA"
-# bucket_name = "sinlapa-media"
-# preview_bucket_name = "sinlapa-media-preview"
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "sinlapa-media"
+preview_bucket_name = "sinlapa-media-preview"
