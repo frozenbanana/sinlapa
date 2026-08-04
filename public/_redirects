@@ -1,0 +1,13 @@
+# Old WordPress URL → new single-page anchors (keep old links + Google working)
+/dagens-lunch/           /#lunch    301
+/dagens-lunch            /#lunch    301
+/thai-lunch-meny-malmo/  /#meny     301
+/thai-lunch-meny-malmo   /#meny     301
+/om-oss/                 /#om       301
+/om-oss                  /#om       301
+/catering-events/        /#catering 301
+/catering-events         /#catering 301
+/boka-bord/              /#boka     301
+/boka-bord               /#boka     301
+/kontakt/                /#kontakt  301
+/kontakt                 /#kontakt  301
