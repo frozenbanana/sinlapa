@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /out/
 Disallow: /erbjudande
 
 Sitemap: https://sinlapa.se/sitemap.xml
