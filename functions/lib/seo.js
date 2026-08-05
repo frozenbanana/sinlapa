@@ -58,6 +58,12 @@ function priceNumber(value) {
   return match ? Number(match[0]) : null;
 }
 
+export function analyticsSnippet(token) {
+  const safe = String(token || "").trim().replace(/["'<>]/g, "");
+  if (!safe) return "";
+  return `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"${safe}"}'></script>`;
+}
+
 function menuItemElement(item) {
   const element = { "@type": "MenuItem", name: item.name };
   if (item.description) element.description = item.description;

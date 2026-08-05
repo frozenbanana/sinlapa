@@ -23,6 +23,8 @@ SITE_URL=https://sinlapa.se
 # Valfritt: exakta kartkoordinater (lat, lng) från Google Business Profile
 SITE_LAT=
 SITE_LNG=
+# Valfritt: Cloudflare Web Analytics-token för besöksstatistik (lämna tomt = av)
+WEB_ANALYTICS_TOKEN=
 
 Utan RESEND_API_KEY loggas mail lokalt (formulären svarar ändå OK i dev).
 

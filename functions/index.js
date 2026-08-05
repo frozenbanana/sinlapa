@@ -1,5 +1,5 @@
 import { readConfig } from "./lib/config.js";
-import { buildRestaurantSchema } from "./lib/seo.js";
+import { analyticsSnippet, buildRestaurantSchema } from "./lib/seo.js";
 
 function siteUrl(env) {
   return (env.SITE_URL || "https://sinlapa.se").replace(/\/$/, "");
@@ -29,7 +29,13 @@ export async function onRequest(context) {
     ? html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => script)
     : html;
 
-  if (replaced === html) {
+  const beacon = analyticsSnippet(context.env.WEB_ANALYTICS_TOKEN);
+  const finalHtml =
+    beacon && !replaced.includes("beacon.min.js")
+      ? replaced.replace("</body>", `${beacon}\n  </body>`)
+      : replaced;
+
+  if (finalHtml === html) {
     return response;
   }
 
@@ -38,5 +44,5 @@ export async function onRequest(context) {
   headers.set("content-type", "text/html; charset=utf-8");
   headers.set("cache-control", "public, max-age=60");
 
-  return new Response(replaced, { status: response.status, headers });
+  return new Response(finalHtml, { status: response.status, headers });
 }
