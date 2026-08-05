@@ -73,14 +73,6 @@ dialog?.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-document.querySelectorAll("[data-placeholder]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    const note = dialog?.querySelector("small");
-    if (note) note.textContent = "Den här leveranslänken kopplas in inför lansering.";
-  });
-});
-
 const dateInputs = document.querySelectorAll('input[type="date"]');
 const today = new Date();
 const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
