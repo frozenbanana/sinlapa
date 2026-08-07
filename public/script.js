@@ -40,7 +40,29 @@ document.addEventListener("keydown", (event) => {
 });
 
 const filters = document.querySelectorAll(".filter");
-const dishes = document.querySelectorAll(".dish-card");
+const menuCategories = document.querySelectorAll(".menu-category");
+
+function applyMenuFilter(selectedFilter) {
+  menuCategories.forEach((category) => {
+    const dishes = category.querySelectorAll(".dish-card");
+
+    if (selectedFilter === "veg") {
+      let hasVisibleDish = false;
+      dishes.forEach((dish) => {
+        const isVeg = (dish.dataset.tags || "").split(/\s+/).includes("veg");
+        dish.hidden = !isVeg;
+        if (isVeg) hasVisibleDish = true;
+      });
+      category.hidden = !hasVisibleDish;
+      return;
+    }
+
+    dishes.forEach((dish) => {
+      dish.hidden = false;
+    });
+    category.hidden = selectedFilter !== "all" && category.dataset.category !== selectedFilter;
+  });
+}
 
 filters.forEach((filterButton) => {
   filterButton.addEventListener("click", () => {
@@ -52,10 +74,7 @@ filters.forEach((filterButton) => {
       button.setAttribute("aria-pressed", String(isActive));
     });
 
-    dishes.forEach((dish) => {
-      const tags = dish.dataset.tags?.split(" ") ?? [];
-      dish.hidden = selectedFilter !== "all" && !tags.includes(selectedFilter);
-    });
+    applyMenuFilter(selectedFilter);
   });
 });
 

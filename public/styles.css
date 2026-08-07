@@ -414,7 +414,7 @@ h2 em::after {
 }
 
 .section-heading > p,
-.section-heading > div:last-child > p {
+.section-heading > div:not(.filters) > p:not(.eyebrow) {
   margin-bottom: 0;
   color: #6a5e56;
   font-size: 1.05rem;
@@ -556,8 +556,37 @@ h2 em::after {
   background: var(--ink);
 }
 
-.section-heading-light > div:last-child > p {
+.section-heading-light > div:not(.filters) > p:not(.eyebrow) {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.menu-category {
+  margin-top: 48px;
+}
+
+.menu-category[hidden] {
+  display: none;
+}
+
+.section-heading + .menu-category {
+  margin-top: 8px;
+}
+
+.menu-category-title {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.menu-category-note {
+  max-width: 720px;
+  margin: -6px 0 22px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 .filters {
@@ -567,6 +596,18 @@ h2 em::after {
   gap: 8px;
 }
 
+.menu-heading {
+  align-items: start;
+  margin-bottom: 40px;
+  gap: 40px 80px;
+}
+
+.menu-heading .filters {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  gap: 10px;
+}
+
 .filter {
   padding: 8px 14px;
   border: 1px solid var(--white-line);
@@ -574,6 +615,7 @@ h2 em::after {
   color: rgba(255, 255, 255, 0.72);
   background: transparent;
   font-size: 0.74rem;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -648,9 +690,16 @@ h2 em::after {
   white-space: nowrap;
 }
 
-.dish-card h3 {
+.dish-card h3,
+.dish-card h4 {
   margin: 12px 0 7px;
   font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.dish-labels span + span::before {
+  content: " · ";
+  font-weight: 400;
 }
 
 .dish-card p {
@@ -1222,6 +1271,8 @@ textarea {
 
   .site-header {
     position: absolute;
+    border-bottom: 0;
+    background: transparent;
   }
 
   .header-inner {
@@ -1244,8 +1295,10 @@ textarea {
   }
 
   .menu-toggle {
-    position: relative;
-    z-index: 2;
+    position: fixed;
+    z-index: 60;
+    top: 16px;
+    right: 18px;
     display: grid;
     width: 44px;
     height: 44px;
@@ -1256,6 +1309,7 @@ textarea {
     place-content: center;
     gap: 5px;
     cursor: pointer;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
   }
 
   .menu-toggle span {
@@ -1280,6 +1334,7 @@ textarea {
 
   .site-nav {
     position: fixed;
+    z-index: 50;
     inset: 0;
     display: flex;
     flex-direction: column;
@@ -1307,7 +1362,8 @@ textarea {
   }
 
   .hero {
-    min-height: 740px;
+    min-height: calc(100svh - 65px);
+    min-height: calc(100dvh - 65px);
     background-position: 60% center;
   }
 
@@ -1547,7 +1603,8 @@ textarea {
 
 @media (max-width: 480px) {
   .hero {
-    min-height: 700px;
+    min-height: calc(100svh - 65px);
+    min-height: calc(100dvh - 65px);
   }
 
   .hero-actions {

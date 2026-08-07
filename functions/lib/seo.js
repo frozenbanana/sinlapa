@@ -20,36 +20,186 @@ const DAY_LABELS = [
 
 const DISHES = [
   {
-    name: "Yum Crispy Chicken",
-    description: "Krispig kyckling, färska örter, grönsaker, ris och husets krämiga sås.",
-    category: "Bowls"
-  },
-  {
-    name: "Crispy Chicken Bowl",
-    description: "Krispig kyckling, färska grönsaker, jordnötter och chilisås.",
-    category: "Bowls",
-    price: 155
+    name: "Spicy Edamame",
+    description: "Edamame med chili, salt och en lätt het kick.",
+    category: "Smårätter"
   },
   {
     name: "Po Pia Tod",
-    description: "Krispiga vegetariska vårrullar serverade med sweet chilisås.",
+    description: "3 st. Friterade hemmagjorda vårrullar fyllda med glasnudlar, kål, morot och torkad svart svamp. Serveras med sweet chilisås.",
     category: "Smårätter",
     price: 65
   },
   {
+    name: "Wakame",
+    description: "Frisk wakamesallad med sesam och lätt syra.",
+    category: "Smårätter"
+  },
+  {
+    name: "Fresh Kimchi",
+    description: "Vår hemmagjorda kimchi med kinakål.",
+    category: "Smårätter",
+    price: 55
+  },
+  {
+    name: "Shrimp Tempura",
+    description: "4 st. Friterade tempura räkor, serveras med chili dippsås & chili mayo.",
+    category: "Smårätter",
+    price: 95
+  },
+  {
+    name: "Som Tam Gai Yang",
+    description: "Grön papayasallad med chili, vitlök, morötter, tomater, limesaft, fisksås & jordnötter. Serveras med marinerad Thai grillad kyckling.",
+    category: "Smårätter",
+    price: 179
+  },
+  {
+    name: "Zesty Lemongrass Tiger Prawns",
+    description: "Thai Tiger räkor sallad med citrongräs, färska örter, lök, lime dressing & chili.",
+    category: "Smårätter",
+    price: 165
+  },
+  {
+    name: "Siam Mussel Salad",
+    description: "Grönmusslor i en frisk Thai salladsdressing med färska örter och rostade jordnötter, serveras med wakame-sjögrässallad.",
+    category: "Smårätter",
+    price: 159
+  },
+  {
+    name: "Larb Gai Grob",
+    description: "Isaan smaker – krispigt, friskt & fullt av örter! Krispig kyckling, rostad chili, rispulver, kaffir-limeblad, mynta, koriander, lök, tamarindsås och sesamfrön.",
+    category: "Thai Fusion Bowls – Kyckling",
+    price: 155
+  },
+  {
+    name: "Cashew Chicken",
+    description: "Krispigt, tropiskt & sötsyrligt! Krispig kyckling, sötsursås, cashewnötter, ananas, tomater, lök och sesamfrön.",
+    category: "Thai Fusion Bowls – Kyckling",
+    price: 159
+  },
+  {
+    name: "Yum Gai Yang",
+    description: "Fräsch, smakrik thailändsk grillad kycklingsallad! Grillad kyckling, Thai salladsdressing, tomater, lök, koriander och sesamfrön.",
+    category: "Thai Fusion Bowls – Kyckling",
+    price: 165
+  },
+  {
+    name: "Krapow Gai Grob",
+    description: "Toppat med stekt ägg! Krispig kyckling, rostad chili, vitlök, Thai holy basilikasås, lök och sesamfrön.",
+    category: "Thai Fusion Bowls – Kyckling",
+    price: 169
+  },
+  {
+    name: "NB Gai Yang",
+    description: "Thai grillad kyckling med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    category: "Noodle Bowls",
+    price: 155
+  },
+  {
+    name: "NB Gai Grob",
+    description: "Krispig kyckling med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    category: "Noodle Bowls",
+    price: 159
+  },
+  {
+    name: "NB Neua",
+    description: "Marinerad högrev med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    category: "Noodle Bowls",
+    price: 169
+  },
+  {
+    name: "NB Goong",
+    description: "Tiger räkor med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    category: "Noodle Bowls",
+    price: 179
+  },
+  {
+    name: "NB Veggie",
+    description: "Vegetariskt alternativ med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    category: "Noodle Bowls",
+    price: 159
+  },
+  {
+    name: "SB Gai Grob",
+    description: "Krispig kyckling i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    category: "Special Bowls",
+    price: 165
+  },
+  {
+    name: "SB Shrimp Tempura",
+    description: "Krispig shrimp tempura (går att byta till tiger räkor) med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    category: "Special Bowls",
+    price: 169
+  },
+  {
+    name: "SB Neua",
+    description: "Marinerad högrev i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    category: "Special Bowls",
+    price: 179
+  },
+  {
+    name: "SB Tofu Teriyaki",
+    description: "Tofu teriyaki i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    category: "Special Bowls",
+    price: 169
+  },
+  {
+    name: "Chicken Green Curry",
+    description: "Klassisk thailändsk grön curry med kyckling, kokosmjölk, thailändska örter & grönsaker. Serveras med jasminris.",
+    category: "Thai Street Food",
+    price: 165
+  },
+  {
+    name: "Chicken Red Curry",
+    description: "Klassisk thailändsk röd curry med kyckling, kokosmjölk, thailändska örter & grönsaker. Serveras med jasminris.",
+    category: "Thai Street Food",
+    price: 165
+  },
+  {
+    name: "Krapow Neua Kai Dow",
+    description: "Wokat högrev med färsk chili, vitlök, thai holy basilika i vår woksås. Serveras med jasminris, stekt ägg, mixsallad, limeklyfta och chili fisksås.",
+    category: "Thai Street Food",
+    price: 179
+  },
+  {
+    name: "Goong Pad Prik",
+    description: "Wokade tiger räkor med röd curry, thailändska örter och sweet basilika. Serveras med jasminris, mixsallad, limeklyfta och chili fisksås.",
+    category: "Thai Street Food",
+    price: 185
+  },
+  {
+    name: "Crying Tiger",
+    description: "Het grillad marinerad biff i thailändsk stil, blandad med färska örter, rostad chili & rispulver, fisksås, limesaft och tamarindsås.",
+    category: "Thai Street Food",
+    price: 199
+  },
+  {
     name: "Mango Sticky Rice",
-    description: "Färsk mango, sticky rice och len kokosmjölk, toppad med mynta.",
-    category: "Desserter"
+    description: "Färsk mango, sticky rice och len kokosmjölk.",
+    category: "Desserts & Barnmeny"
   },
   {
-    name: "Thai Iced Tea",
-    description: "Iskall thailändsk tedryck med lime och färsk mynta.",
-    category: "Drinkar"
+    name: "Thailändsk pannkaka (Roti)",
+    description: "Krispig thailändsk roti-pannkaka, serverad varm.",
+    category: "Desserts & Barnmeny"
   },
   {
-    name: "Sinlapa Sharing Plate",
-    description: "Ett urval av krispiga smårätter, edamame, örter och flera dippsåser.",
-    category: "Att dela"
+    name: "Glass i strut",
+    description: "Välj smak: vanilj, choklad, jordgubb eller mango. Topping +5 kr.",
+    category: "Desserts & Barnmeny",
+    price: 20
+  },
+  {
+    name: "Khao Gai Yang",
+    description: "Thai grillad kyckling serveras med ris, teriyakisås och toppad med sesamfrön.",
+    category: "Desserts & Barnmeny",
+    price: 75
+  },
+  {
+    name: "BaMee Gai Grob",
+    description: "Stekta äggnudlar med woksås och krispig kyckling. Valfri sås.",
+    category: "Desserts & Barnmeny",
+    price: 89
   }
 ];
 
