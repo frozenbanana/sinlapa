@@ -690,6 +690,16 @@ h2 em::after {
   white-space: nowrap;
 }
 
+.dish-topline .price-confirm {
+  color: #a65b24;
+  letter-spacing: 0.04em;
+}
+
+.dish-labels .price-confirm-note {
+  color: #a65b24;
+  font-weight: 700;
+}
+
 .dish-card h3,
 .dish-card h4 {
   margin: 12px 0 7px;
