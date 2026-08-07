@@ -33,7 +33,7 @@ function socialAssetOrigin(request, env) {
 function applySocialMeta(html, request, env) {
   const canonical = `${siteUrl(env)}/`;
   const assetOrigin = socialAssetOrigin(request, env);
-  const image = `${assetOrigin}/assets/hero.webp`;
+  const image = `${assetOrigin}/assets/sinlapa-OG.jpg`;
   const pageUrl = `${assetOrigin}/`;
 
   return html
