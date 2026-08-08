@@ -142,15 +142,15 @@ function applyLunch(lunch) {
 
   if (weekLabel) weekLabel.textContent = lunch.weekLabel || "Den här veckan";
   if (title) title.textContent = lunch.title || "Lunch hos Sinlapa";
-  if (price) price.textContent = lunch.price || "129 kr";
+  if (price) price.textContent = lunch.price || "139 kr";
   if (included) included.textContent = lunch.included || "";
   if (contactLunch) contactLunch.textContent = lunch.hoursLabel || "";
   if (quickHours) quickHours.textContent = lunch.hoursLabel || "Vardagar 11–14";
   if (quickPrice) {
-    const priceText = lunch.price || "129 kr";
+    const priceText = lunch.price || "139 kr";
     quickPrice.textContent = priceText.toLowerCase().includes("lunch")
-      ? `${priceText} inkl. soppa`
-      : `Lunch ${priceText} inkl. soppa`;
+      ? `${priceText} inkl. dryck`
+      : `Lunch ${priceText} inkl. dryck`;
   }
 
   if (list && Array.isArray(lunch.items)) {
@@ -222,12 +222,13 @@ function updateOpeningStatus(hours) {
     }));
   } else {
     const fallback = {
-      1: [[660, 840], [960, 1200]],
-      2: [[660, 840], [960, 1200]],
-      3: [[660, 840], [960, 1200]],
-      4: [[660, 840], [960, 1200]],
-      5: [[660, 1260]],
-      6: [[720, 1260]]
+      // Temporary Aug 3–16 2026: Mon closed; Tue–Fri 11–21/21:30; Sat–Sun 16–21:30
+      2: [[660, 1260]],
+      3: [[660, 1260]],
+      4: [[660, 1260]],
+      5: [[660, 1290]],
+      6: [[960, 1290]],
+      0: [[960, 1290]]
     };
     periods = (fallback[dayIndex] || []).map(([start, end]) => ({
       start,

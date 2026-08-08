@@ -3,69 +3,57 @@ export const CONFIG_KEY = "site-config";
 export const DEFAULT_CONFIG = {
   hours: {
     monday: {
-      closed: false,
-      label: "11–14, 16–20",
-      periods: [
-        { open: "11:00", close: "14:00" },
-        { open: "16:00", close: "20:00" }
-      ]
-    },
-    tuesday: {
-      closed: false,
-      label: "11–14, 16–20",
-      periods: [
-        { open: "11:00", close: "14:00" },
-        { open: "16:00", close: "20:00" }
-      ]
-    },
-    wednesday: {
-      closed: false,
-      label: "11–14, 16–20",
-      periods: [
-        { open: "11:00", close: "14:00" },
-        { open: "16:00", close: "20:00" }
-      ]
-    },
-    thursday: {
-      closed: false,
-      label: "11–14, 16–20",
-      periods: [
-        { open: "11:00", close: "14:00" },
-        { open: "16:00", close: "20:00" }
-      ]
-    },
-    friday: {
-      closed: false,
-      label: "11–21",
-      periods: [{ open: "11:00", close: "21:00" }]
-    },
-    saturday: {
-      closed: false,
-      label: "12–21",
-      periods: [{ open: "12:00", close: "21:00" }]
-    },
-    sunday: {
       closed: true,
       label: "Stängt",
       periods: []
+    },
+    tuesday: {
+      closed: false,
+      label: "11–21 (lunch 11–14)",
+      periods: [{ open: "11:00", close: "21:00" }]
+    },
+    wednesday: {
+      closed: false,
+      label: "11–21 (lunch 11–14)",
+      periods: [{ open: "11:00", close: "21:00" }]
+    },
+    thursday: {
+      closed: false,
+      label: "11–21 (lunch 11–14)",
+      periods: [{ open: "11:00", close: "21:00" }]
+    },
+    friday: {
+      closed: false,
+      label: "11–21.30 (lunch 11–14)",
+      periods: [{ open: "11:00", close: "21:30" }]
+    },
+    saturday: {
+      closed: false,
+      label: "16–21.30",
+      periods: [{ open: "16:00", close: "21:30" }]
+    },
+    sunday: {
+      closed: false,
+      label: "16–21.30",
+      periods: [{ open: "16:00", close: "21:30" }]
     }
   },
   lunch: {
-    price: "129 kr",
+    price: "139 kr",
     hoursLabel: "Måndag–fredag 11–14",
     weekLabel: "Den här veckan",
     title: "Lunch hos Sinlapa",
-    included: "Husets soppa · Vatten · Kaffe",
+    included: "Dryck ingår",
     items: [
       {
         tag: "Populär",
         name: "Dagens Thai Fusion Bowl",
         description: "Kockens val med säsongens grönsaker, jasminris och husets sås.",
-        note: "Går att få vegetarisk"
+        note: "Går att få vegansk"
       },
       {
         tag: "Vegetarisk",
-        name: "Veckans gröna bowl",
+        name: "Veckans Veggie",
         description: "Färska grönsaker, örter, krispigt tillbehör och balanserad hetta.",
         note: "Fråga oss om allergener"
       }
@@ -141,7 +129,7 @@ export function normalizeConfig(input = {}) {
   };
 
   if (!base.lunch.items.length) {
-    base.lunch.items = DEFAULT_CONFIG.lunch.items;
+    base.lunch.items = clone(DEFAULT_CONFIG.lunch.items);
   }
 
   base.updatedAt = input.updatedAt || null;

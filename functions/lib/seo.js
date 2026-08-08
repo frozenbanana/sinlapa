@@ -22,18 +22,20 @@ const DISHES = [
   {
     name: "Spicy Edamame",
     description: "Edamame med chili, salt och en lätt het kick.",
-    category: "Smårätter"
+    category: "Smårätter",
+    price: 55
   },
   {
     name: "Po Pia Tod",
-    description: "3 st. Friterade hemmagjorda vårrullar fyllda med glasnudlar, kål, morot och torkad svart svamp. Serveras med sweet chilisås.",
+    description: "4 st. Friterade hemmagjorda vårrullar, fyllda med kål, morot, black fungus & glasnudlar. Serveras med sweet chilisås.",
     category: "Smårätter",
-    price: 65
+    price: 69
   },
   {
     name: "Wakame",
     description: "Frisk wakamesallad med sesam och lätt syra.",
-    category: "Smårätter"
+    category: "Smårätter",
+    price: 35
   },
   {
     name: "Fresh Kimchi",
@@ -67,79 +69,79 @@ const DISHES = [
   },
   {
     name: "Larb Gai Grob",
-    description: "Isaan smaker – krispigt, friskt & fullt av örter! Krispig kyckling, rostad chili, rispulver, kaffir-limeblad, mynta, koriander, lök, tamarindsås och sesamfrön.",
+    description: "Isaan smaker – krispigt, friskt & fullt av örter! Krispig kyckling, rostad chili, rispulver, kaffir-limeblad, mynta, koriander, lök, tamarindsås och sesamfrön. Tillbehör: ris, edamame, gurka, mixsallad.",
     category: "Thai Fusion Bowls – Kyckling",
     price: 155
   },
   {
     name: "Cashew Chicken",
-    description: "Krispigt, tropiskt & sötsyrligt! Krispig kyckling, sötsursås, cashewnötter, ananas, tomater, lök och sesamfrön.",
+    description: "Krispigt, tropiskt & sötsyrligt! Krispig kyckling, söt sursås, cashewnötter, ananas, tomater, lök och sesamfrön. Tillbehör: ris, rödkål, morot, mixsallad.",
     category: "Thai Fusion Bowls – Kyckling",
     price: 159
   },
   {
     name: "Yum Gai Yang",
-    description: "Fräsch, smakrik thailändsk grillad kycklingsallad! Grillad kyckling, Thai salladsdressing, tomater, lök, koriander och sesamfrön.",
+    description: "Fräsch, smakrik thailändsk grillad kycklingsallad! Grillad kyckling, Thai salladsdressing, tomater, lök, koriander och sesamfrön. Tillbehör: ris, avokado, gurka, rödkål, morot.",
     category: "Thai Fusion Bowls – Kyckling",
     price: 165
   },
   {
     name: "Krapow Gai Grob",
-    description: "Toppat med stekt ägg! Krispig kyckling, rostad chili, vitlök, Thai holy basilikasås, lök och sesamfrön.",
+    description: "Toppat med stekt ägg! Krispig kyckling, rostad chili, vitlök, Thai holy basilikasås, lök och sesamfrön. Tillbehör: ris, stekt ägg, gurka, lime.",
     category: "Thai Fusion Bowls – Kyckling",
     price: 169
   },
   {
     name: "NB Gai Yang",
-    description: "Thai grillad kyckling med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    description: "Thai Grillad Kyckling.",
     category: "Noodle Bowls",
     price: 155
   },
   {
     name: "NB Gai Grob",
-    description: "Krispig kyckling med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    description: "Krispig Kyckling",
     category: "Noodle Bowls",
     price: 159
   },
   {
     name: "NB Neua",
-    description: "Marinerad högrev med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    description: "Marinerad Högrev",
     category: "Noodle Bowls",
     price: 169
   },
   {
     name: "NB Goong",
-    description: "Tiger räkor med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    description: "Tiger Räkor",
     category: "Noodle Bowls",
     price: 179
   },
   {
     name: "NB Veggie",
-    description: "Vegetariskt alternativ med mjuka nudlar, hemgjord noodlebowl-sås, krossade jordnötter, koriander, salladslök, morot, rödkål, böngroddar, limeklyfta och sesamfrön.",
+    description: "Välj protein: Vegofärs | Tärnad Tofu | Krispig Veggie",
     category: "Noodle Bowls",
     price: 159
   },
   {
     name: "SB Gai Grob",
-    description: "Krispig kyckling i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    description: "Krispig Kyckling",
     category: "Special Bowls",
     price: 165
   },
   {
     name: "SB Shrimp Tempura",
-    description: "Krispig shrimp tempura (går att byta till tiger räkor) med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    description: "Går att byta till Tiger Räkor",
     category: "Special Bowls",
     price: 169
   },
   {
     name: "SB Neua",
-    description: "Marinerad högrev i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    description: "Marinerad Högrev",
     category: "Special Bowls",
     price: 179
   },
   {
     name: "SB Tofu Teriyaki",
-    description: "Tofu teriyaki i salladsbowl med fresh kimchi, wakame, edamame, avokado, ris, mixsallad och sesamfrön.",
+    description: "Välj protein: Vegofärs | Tärnad Tofu | Krispig Veggie",
     category: "Special Bowls",
     price: 169
   },
@@ -169,23 +171,25 @@ const DISHES = [
   },
   {
     name: "Crying Tiger",
-    description: "Het grillad marinerad biff i thailändsk stil, blandad med färska örter, rostad chili & rispulver, fisksås, limesaft och tamarindsås.",
+    description: "Het grillad marinerad biff i thailändsk stil, blandad med färska örter, rostad chili & rispulver, fisksås, limesaft och tamarindsås. Smiling Tiger finns som mildare alternativ.",
     category: "Thai Street Food",
     price: 199
   },
   {
     name: "Mango Sticky Rice",
-    description: "Färsk mango, sticky rice och len kokosmjölk.",
-    category: "Desserts & Barnmeny"
+    description: "Söt klibbris med mango & kokossås.",
+    category: "Desserts & Barnmeny",
+    price: 99
   },
   {
     name: "Thailändsk pannkaka (Roti)",
-    description: "Krispig thailändsk roti-pannkaka, serverad varm.",
-    category: "Desserts & Barnmeny"
+    description: "Krispig, stekt thailändsk pannkaka med banan, chokladsås, sötad kondenserad mjölk & vaniljglass.",
+    category: "Desserts & Barnmeny",
+    price: 89
   },
   {
     name: "Glass i strut",
-    description: "Välj smak: vanilj, choklad, jordgubb eller mango. Topping +5 kr.",
+    description: "Välj smak: vanilj, choklad, jordgubb eller mango. Topping +5 kr. Chokladsås | Jordgubbssås | Karamellsås | Strössel",
     category: "Desserts & Barnmeny",
     price: 20
   },

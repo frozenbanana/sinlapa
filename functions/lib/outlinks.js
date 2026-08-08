@@ -1,7 +1,6 @@
 export const OUT_LINKS = {
   foodora: "https://www.foodora.se/restaurant/bjyd/sinlapa",
-  wolt: "https://wolt.com/sv/swe/malmo/restaurant/sinlapa",
-  ubereats: "https://www.ubereats.com/se-en/store/sinlapa-thai-fusion-bowls/EIsKTdbeXR-qklwahNYaCQ"
+  wolt: "https://wolt.com/sv/swe/malmo/restaurant/sinlapa"
 };
 
 export const STATS_KEY = "stats:out";

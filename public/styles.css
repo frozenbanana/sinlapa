@@ -597,13 +597,13 @@ h2 em::after {
 }
 
 .menu-heading {
+  grid-template-columns: 1fr;
   align-items: start;
   margin-bottom: 40px;
-  gap: 40px 80px;
+  gap: 28px;
 }
 
 .menu-heading .filters {
-  grid-column: 1 / -1;
   margin-top: 0;
   gap: 10px;
 }
@@ -717,6 +717,22 @@ h2 em::after {
   font-size: 0.84rem;
 }
 
+.dish-card .dish-tagline {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.dish-card .dish-meta {
+  margin-top: 10px;
+  color: #85786f;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
 .dish-labels {
   margin-top: 22px;
   padding-top: 14px;
@@ -745,6 +761,7 @@ h2 em::after {
 .story-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: stretch;
   min-height: 800px;
   background: var(--paper);
 }
@@ -777,8 +794,30 @@ h2 em::after {
   font-weight: 500;
 }
 
+.story-kicker {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.story-copy {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.story-copy p,
 .story-content > p {
+  margin: 0;
   color: #6a5e56;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.story-close {
+  color: var(--ink) !important;
+  font-weight: 600;
 }
 
 .reviews-section {
@@ -1599,6 +1638,12 @@ textarea {
     font-size: 0.72rem;
     text-decoration: none;
     gap: 2px;
+  }
+
+  .mobile-actions a > span[aria-hidden="true"],
+  .mobile-actions button > span[aria-hidden="true"] {
+    font-size: 2em;
+    line-height: 1;
   }
 
   .mobile-actions button {
