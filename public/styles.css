@@ -388,7 +388,12 @@ h2 em::after {
   color: var(--orange);
   font-weight: 700;
   gap: 10px;
+  text-decoration: underline;
   text-underline-offset: 5px;
+}
+
+.text-link span {
+  text-decoration: none;
 }
 
 .quick-info .text-link {
@@ -476,7 +481,8 @@ h2 em::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 142px;
+  min-height: 174px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   gap: 24px;
 }
