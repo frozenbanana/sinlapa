@@ -426,7 +426,8 @@ h2 em::after {
 
 .lunch-panel {
   display: grid;
-  grid-template-columns: 0.72fr 1.8fr 0.72fr;
+  grid-template-columns: 0.72fr 1.8fr;
+  grid-template-rows: 1fr auto;
   min-height: 380px;
   border: 1px solid var(--line);
   background: var(--paper);
@@ -442,6 +443,7 @@ h2 em::after {
 }
 
 .lunch-date {
+  grid-row: 1 / -1;
   color: white;
   background: var(--orange);
 }
@@ -465,14 +467,16 @@ h2 em::after {
 }
 
 .lunch-list {
-  padding: 18px 38px;
+  grid-column: 2;
+  grid-row: 1;
+  padding: 10px 38px;
 }
 
 .lunch-list article {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 170px;
+  min-height: 142px;
   border-bottom: 1px solid var(--line);
   gap: 24px;
 }
@@ -536,14 +540,33 @@ h2 em::after {
 }
 
 .lunch-note {
-  border-left: 1px solid var(--line);
+  grid-column: 2;
+  grid-row: 2;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  min-height: 62px;
+  padding: 16px 38px;
+  border-top: 1px solid var(--line);
   background: #f0e5d5;
 }
 
 .lunch-note::before {
+  display: none;
+}
+
+.lunch-included {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.drink-icon {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
   color: var(--orange);
-  font-size: 2.5rem;
-  content: "♨";
 }
 
 .lunch-note span {
@@ -666,8 +689,8 @@ h2 em::after {
 }
 
 .dish-body {
-  min-height: 220px;
-  padding: 24px;
+  min-height: 238px;
+  padding: 25px 24px 27px;
 }
 
 .dish-topline,
@@ -680,8 +703,9 @@ h2 em::after {
 
 .dish-topline {
   color: #7d7067;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -702,8 +726,9 @@ h2 em::after {
 
 .dish-card h3,
 .dish-card h4 {
-  margin: 12px 0 7px;
-  font-size: 1.35rem;
+  margin: 13px 0 10px;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.15;
   font-weight: 600;
 }
 
@@ -713,8 +738,10 @@ h2 em::after {
 }
 
 .dish-card p {
+  margin: 0;
   color: #70645c;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
+  line-height: 1.58;
 }
 
 .dish-card .dish-tagline {
@@ -731,6 +758,50 @@ h2 em::after {
   color: #85786f;
   font-size: 0.78rem;
   line-height: 1.45;
+}
+
+.dish-options {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  color: #756960;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.dish-options::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 0 10px;
+  color: #9a8c82;
+  background: var(--paper);
+  content: "Välj";
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+}
+
+.dish-option {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  align-items: start;
+  gap: 10px;
+}
+
+.dish-option-label {
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .dish-labels {
@@ -770,7 +841,7 @@ h2 em::after {
   min-height: 700px;
   background:
     linear-gradient(rgba(25, 15, 8, 0.05), rgba(25, 15, 8, 0.15)),
-    url("/assets/sinlapa-queen.webp") center / cover no-repeat;
+    url("/assets/sinlapa-story.webp") center / cover no-repeat;
 }
 
 .story-content {
@@ -1287,16 +1358,7 @@ textarea {
   }
 
   .lunch-note {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: center;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-    gap: 20px;
-  }
-
-  .lunch-note::before {
-    display: none;
+    grid-column: 2;
   }
 
   .menu-grid {
@@ -1470,13 +1532,17 @@ textarea {
 
   .lunch-panel {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .lunch-date {
+    grid-row: auto;
     min-height: 215px;
   }
 
   .lunch-list {
+    grid-column: auto;
+    grid-row: auto;
     padding: 0 25px;
   }
 
@@ -1505,8 +1571,11 @@ textarea {
 
   .lunch-note {
     grid-column: auto;
+    grid-row: auto;
     flex-direction: column;
     align-items: flex-start;
+    min-height: 0;
+    padding: 22px 25px;
   }
 
   .menu-grid {

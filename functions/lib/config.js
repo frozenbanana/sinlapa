@@ -43,7 +43,7 @@ export const DEFAULT_CONFIG = {
     hoursLabel: "Måndag–fredag 11–14",
     weekLabel: "Den här veckan",
     title: "Lunch hos Sinlapa",
-    included: "Dryck ingår",
+    included: "Valfri dryck",
     items: [
       {
         tag: "Populär",

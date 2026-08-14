@@ -10,7 +10,7 @@ export const SITE_GALLERY = [
   { key: "site:menu-10", url: "/assets/menu-10.webp", name: "Crispy chicken bowl", source: "site" },
   { key: "site:dish-1", url: "/assets/dish-1.webp", name: "Dish 1", source: "site" },
   { key: "site:dish-2", url: "/assets/dish-2.webp", name: "Dish 2", source: "site" },
-  { key: "site:dish-3", url: "/assets/dish-3.webp", name: "Dish 3", source: "site" },
+  { key: "site:dish-3", url: "/assets/sinlapa-story.webp", name: "Sinlapa story", source: "site" },
   { key: "site:dish-4", url: "/assets/dish-4.webp", name: "Dish 4", source: "site" }
 ];
 
