@@ -798,7 +798,7 @@ h2 em::after {
 
 .dish-option {
   display: grid;
-  grid-template-columns: 76px 1fr;
+  grid-template-columns: auto 1fr;
   align-items: start;
   gap: 10px;
 }
@@ -810,6 +810,7 @@ h2 em::after {
   letter-spacing: 0.07em;
   line-height: 1.5;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .dish-labels {
@@ -1144,7 +1145,7 @@ textarea {
 
 .contact-section {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 650px;
   color: white;
   background: var(--ink);
@@ -1155,11 +1156,15 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 100px max(8vw, calc((100vw - var(--max)) / 2));
 }
 
 .contact-main {
+  padding: 100px 64px 100px max(8vw, calc((100vw - var(--max)) / 2));
   border-right: 1px solid var(--white-line);
+}
+
+.hours {
+  padding: 100px max(8vw, calc((100vw - var(--max)) / 2)) 100px 64px;
 }
 
 .contact-main h2 {
