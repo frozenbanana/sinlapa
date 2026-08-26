@@ -43,6 +43,9 @@ const filters = document.querySelectorAll(".filter");
 const menuCategories = document.querySelectorAll(".menu-category");
 
 function applyMenuFilter(selectedFilter) {
+  const drinkCategory = document.querySelector("[data-category='dryck']");
+  drinkCategory?.classList.toggle("is-expanded", selectedFilter === "dryck");
+
   menuCategories.forEach((category) => {
     const dishes = category.querySelectorAll(".dish-card");
 
@@ -79,6 +82,12 @@ filters.forEach((filterButton) => {
 });
 
 filters.forEach((button, index) => button.setAttribute("aria-pressed", String(index === 0)));
+
+document.querySelectorAll("[data-open-drink-filter]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelector(".filter[data-filter='dryck']")?.click();
+  });
+});
 
 const dialog = document.querySelector("#order-dialog");
 

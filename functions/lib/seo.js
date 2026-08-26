@@ -204,6 +204,66 @@ const DISHES = [
     description: "Stekta äggnudlar med woksås och krispig kyckling. Valfri sås.",
     category: "Desserts & Barnmeny",
     price: 89
+  },
+  {
+    name: "Thai Lime Iced Tea",
+    description: "Friskt iste med en syrlig limekick.",
+    category: "Drycker",
+    price: 62
+  },
+  {
+    name: "Thai Milk Tea",
+    description: "Krämigt, aromatiskt thailändskt svart te med söt mjölk.",
+    category: "Drycker",
+    price: 68
+  },
+  {
+    name: "Thai Green Milk Tea",
+    description: "Milt grönt te med en krämig thai-twist.",
+    category: "Drycker",
+    price: 68
+  },
+  {
+    name: "Nom Yen",
+    description: "Frisk thailändsk roslatte med krämig mjölk och distinkt smak av salak.",
+    category: "Drycker",
+    price: 68
+  },
+  {
+    name: "Brew Coffee",
+    description: "Nybryggt kaffe.",
+    category: "Drycker",
+    price: 35
+  },
+  {
+    name: "Butterfly Pea Tea",
+    description: "Naturligt blått örtte med lätt, lugn smak. Serveras med honung och lime.",
+    category: "Drycker",
+    price: 45
+  },
+  {
+    name: "Thai Milk Tea (varm)",
+    description: "Traditionellt thailändskt te, varmt med mjölk.",
+    category: "Drycker",
+    price: 55
+  },
+  {
+    name: "Hot Chocolate",
+    description: "Fyllig och len varm choklad.",
+    category: "Drycker",
+    price: 55
+  },
+  {
+    name: "Bael Fruit Tea",
+    description: "Naturligt sött örtte med varm, fruktig doft. Serveras med honung.",
+    category: "Drycker",
+    price: 45
+  },
+  {
+    name: "Lemongrass Tea",
+    description: "Friskt och aromatiskt örtte med citrus. Serveras med honung och lime.",
+    category: "Drycker",
+    price: 55
   }
 ];
 

@@ -208,6 +208,22 @@
           { "@type": "MenuItem", "name": "Khao Gai Yang", "description": "Thai grillad kyckling serveras med ris, teriyakisås och toppad med sesamfrön.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 75 } },
           { "@type": "MenuItem", "name": "BaMee Gai Grob", "description": "Stekta äggnudlar med woksås och krispig kyckling. Valfri sås.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 89 } }
         ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Drycker",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Thai Lime Iced Tea", "description": "Friskt iste med en syrlig limekick.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 62 } },
+          { "@type": "MenuItem", "name": "Thai Milk Tea", "description": "Krämigt, aromatiskt thailändskt svart te med söt mjölk.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 68 } },
+          { "@type": "MenuItem", "name": "Thai Green Milk Tea", "description": "Milt grönt te med en krämig thai-twist.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 68 } },
+          { "@type": "MenuItem", "name": "Nom Yen", "description": "Frisk thailändsk roslatte med krämig mjölk och distinkt smak av salak.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 68 } },
+          { "@type": "MenuItem", "name": "Brew Coffee", "description": "Nybryggt kaffe.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 35 } },
+          { "@type": "MenuItem", "name": "Butterfly Pea Tea", "description": "Naturligt blått örtte med lätt, lugn smak. Serveras med honung och lime.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 45 } },
+          { "@type": "MenuItem", "name": "Thai Milk Tea (varm)", "description": "Traditionellt thailändskt te, varmt med mjölk.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 55 } },
+          { "@type": "MenuItem", "name": "Hot Chocolate", "description": "Fyllig och len varm choklad.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 55 } },
+          { "@type": "MenuItem", "name": "Bael Fruit Tea", "description": "Naturligt sött örtte med varm, fruktig doft. Serveras med honung.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 45 } },
+          { "@type": "MenuItem", "name": "Lemongrass Tea", "description": "Friskt och aromatiskt örtte med citrus. Serveras med honung och lime.", "offers": { "@type": "Offer", "priceCurrency": "SEK", "price": 55 } }
+        ]
       }
     ]
   },
@@ -353,6 +369,7 @@
             <button class="filter" type="button" data-filter="special-bowls">Special Bowls</button>
             <button class="filter" type="button" data-filter="street-food">Street Food</button>
             <button class="filter" type="button" data-filter="desserts-barnmeny">Desserts &amp; Barnmeny</button>
+            <button class="filter" type="button" data-filter="dryck">Dryck</button>
             <button class="filter" type="button" data-filter="veg">Veg</button>
           </div>
         </div>
@@ -714,6 +731,190 @@
                 <div class="dish-options" aria-label="Valbar toppingsås">
                   <div class="dish-option"><span class="dish-option-label">Toppingsås</span><span>Valfri sås</span></div>
                 </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu-category" data-category="dryck">
+          <h3 class="menu-category-title">Drycker</h3>
+          <p class="menu-category-note">Kalla och varma drycker, alkoholfritt.</p>
+
+          <div class="drink-board drink-board-teaser">
+            <article class="drink-column drink-column-portrait">
+              <img src="/assets/menu/dryck/thai-lime-iced-tea.webp" alt="Thai Lime Iced Tea" loading="lazy" />
+              <h4>Kalla</h4>
+              <ul>
+                <li>
+                  <div>
+                    <span>Thai Lime Iced Tea</span>
+                    <p>Friskt iste med en syrlig limekick.</p>
+                  </div>
+                  <strong>62 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Thai Milk Tea</span>
+                    <p>Krämigt, aromatiskt thailändskt svart te med söt mjölk.</p>
+                  </div>
+                  <strong>68 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Thai Green Milk Tea</span>
+                    <p>Milt grönt te med en krämig thai-twist.</p>
+                  </div>
+                  <strong>68 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Nom Yen</span>
+                    <p>Frisk thailändsk roslatte med krämig mjölk och distinkt smak av salak.</p>
+                  </div>
+                  <strong>68 kr</strong>
+                </li>
+              </ul>
+            </article>
+            <article class="drink-column drink-column-square">
+              <img src="/assets/menu/dryck/butterfly-pea-tea.webp" alt="Butterfly Pea Tea" loading="lazy" />
+              <h4>Varma</h4>
+              <ul>
+                <li>
+                  <div>
+                    <span>Brew Coffee</span>
+                    <p>Nybryggt kaffe.</p>
+                  </div>
+                  <strong>35 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Butterfly Pea Tea</span>
+                    <p>Naturligt blått örtte med lätt, lugn smak. Serveras med honung och lime.</p>
+                  </div>
+                  <strong>45 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Bael Fruit Tea</span>
+                    <p>Naturligt sött örtte med varm, fruktig doft. Serveras med honung.</p>
+                  </div>
+                  <strong>45 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Thai Milk Tea</span>
+                    <p>Traditionellt thailändskt te, varmt med mjölk.</p>
+                  </div>
+                  <strong>55 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Hot Chocolate</span>
+                    <p>Fyllig och len varm choklad.</p>
+                  </div>
+                  <strong>55 kr</strong>
+                </li>
+                <li>
+                  <div>
+                    <span>Lemongrass Tea</span>
+                    <p>Friskt och aromatiskt örtte med citrus. Serveras med honung och lime.</p>
+                  </div>
+                  <strong>55 kr</strong>
+                </li>
+              </ul>
+            </article>
+            <button class="button button-ghost drink-open-grid" type="button" data-open-drink-filter>Se alla bilder</button>
+          </div>
+
+          <div class="drink-grid">
+            <article class="drink-card drink-card-portrait">
+              <img src="/assets/menu/dryck/thai-lime-iced-tea.webp" alt="Thai Lime Iced Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Kall</span>
+                <h4>Thai Lime Iced Tea</h4>
+                <p>Friskt iste med en syrlig limekick.</p>
+                <strong>62 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card drink-card-portrait">
+              <img src="/assets/menu/dryck/thai-milk-tea-iced.webp" alt="Thai Milk Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Kall</span>
+                <h4>Thai Milk Tea</h4>
+                <p>Krämigt, aromatiskt thailändskt svart te med söt mjölk.</p>
+                <strong>68 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card drink-card-portrait">
+              <img src="/assets/menu/dryck/thai-green-milk-tea.webp" alt="Thai Green Milk Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Kall</span>
+                <h4>Thai Green Milk Tea</h4>
+                <p>Milt grönt te med en krämig thai-twist.</p>
+                <strong>68 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card drink-card-portrait">
+              <img src="/assets/menu/dryck/nom-yen.webp" alt="Nom Yen" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Kall</span>
+                <h4>Nom Yen</h4>
+                <p>Frisk thailändsk roslatte med krämig mjölk och distinkt smak av salak.</p>
+                <strong>68 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/brew-coffee.webp" alt="Brew Coffee" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Brew Coffee</h4>
+                <p>Nybryggt kaffe.</p>
+                <strong>35 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/butterfly-pea-tea.webp" alt="Butterfly Pea Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Butterfly Pea Tea</h4>
+                <p>Naturligt blått örtte med lätt, lugn smak. Serveras med honung och lime.</p>
+                <strong>45 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/bael-fruit-tea.webp" alt="Bael Fruit Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Bael Fruit Tea</h4>
+                <p>Naturligt sött örtte med varm, fruktig doft. Serveras med honung.</p>
+                <strong>45 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/thai-milk-tea-hot.webp" alt="Thai Milk Tea, varm" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Thai Milk Tea</h4>
+                <p>Traditionellt thailändskt te, varmt med mjölk.</p>
+                <strong>55 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/hot-chocolate.webp" alt="Hot Chocolate" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Hot Chocolate</h4>
+                <p>Fyllig och len varm choklad.</p>
+                <strong>55 kr</strong>
+              </div>
+            </article>
+            <article class="drink-card">
+              <img src="/assets/menu/dryck/lemongrass-tea.webp" alt="Lemongrass Tea" loading="lazy" />
+              <div class="drink-card-body">
+                <span>Varm</span>
+                <h4>Lemongrass Tea</h4>
+                <p>Friskt och aromatiskt örtte med citrus. Serveras med honung och lime.</p>
+                <strong>55 kr</strong>
               </div>
             </article>
           </div>
