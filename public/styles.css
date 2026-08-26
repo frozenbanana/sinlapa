@@ -752,6 +752,10 @@ h2 em::after {
   line-height: 1.58;
 }
 
+.dish-card .dish-sides {
+  margin-top: 12px;
+}
+
 .dish-card .dish-tagline {
   margin: 0 0 8px;
   color: var(--ink);
@@ -807,6 +811,7 @@ h2 em::after {
   color: var(--ink);
   font-size: 0.65rem;
   font-weight: 700;
+  width: 12ch;
   letter-spacing: 0.07em;
   line-height: 1.5;
   text-transform: uppercase;
