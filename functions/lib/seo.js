@@ -209,25 +209,25 @@ const DISHES = [
     name: "Thai Lime Iced Tea",
     description: "Friskt iste med en syrlig limekick.",
     category: "Drycker",
-    price: 62
+    price: 65
   },
   {
     name: "Thai Milk Tea",
     description: "Krämigt, aromatiskt thailändskt svart te med söt mjölk.",
     category: "Drycker",
-    price: 68
+    price: 69
   },
   {
     name: "Thai Green Milk Tea",
     description: "Milt grönt te med en krämig thai-twist.",
     category: "Drycker",
-    price: 68
+    price: 69
   },
   {
     name: "Nom Yen",
     description: "Frisk thailändsk roslatte med krämig mjölk och distinkt smak av salak.",
     category: "Drycker",
-    price: 68
+    price: 66
   },
   {
     name: "Brew Coffee",
@@ -251,19 +251,19 @@ const DISHES = [
     name: "Hot Chocolate",
     description: "Fyllig och len varm choklad.",
     category: "Drycker",
-    price: 55
+    price: 48
   },
   {
     name: "Bael Fruit Tea",
     description: "Naturligt sött örtte med varm, fruktig doft. Serveras med honung.",
     category: "Drycker",
-    price: 45
+    price: 42
   },
   {
     name: "Lemongrass Tea",
     description: "Friskt och aromatiskt örtte med citrus. Serveras med honung och lime.",
     category: "Drycker",
-    price: 55
+    price: 45
   }
 ];
 

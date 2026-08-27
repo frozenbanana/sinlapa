@@ -903,6 +903,16 @@ h2 em::after {
   line-height: 1.4;
 }
 
+.drink-column li .drink-diet,
+.drink-card-body .drink-diet {
+  margin: 4px 0 0;
+  color: var(--sage);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .drink-column strong {
   color: var(--orange-dark);
   white-space: nowrap;
@@ -929,6 +939,10 @@ h2 em::after {
   overflow: hidden;
   color: var(--ink);
   background: var(--paper);
+}
+
+.drink-card[hidden] {
+  display: none;
 }
 
 .drink-card img {
@@ -969,6 +983,10 @@ h2 em::after {
   color: #70645c;
   font-size: 0.78rem;
   line-height: 1.4;
+}
+
+.drink-card-body .drink-diet {
+  margin: 0 0 8px;
 }
 
 .drink-card-body strong {

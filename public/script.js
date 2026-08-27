@@ -44,24 +44,36 @@ const menuCategories = document.querySelectorAll(".menu-category");
 
 function applyMenuFilter(selectedFilter) {
   const drinkCategory = document.querySelector("[data-category='dryck']");
-  drinkCategory?.classList.toggle("is-expanded", selectedFilter === "dryck");
+  drinkCategory?.classList.toggle(
+    "is-expanded",
+    selectedFilter === "dryck" || selectedFilter === "veg"
+  );
 
   menuCategories.forEach((category) => {
     const dishes = category.querySelectorAll(".dish-card");
+    const drinks = category.querySelectorAll(".drink-card");
 
     if (selectedFilter === "veg") {
-      let hasVisibleDish = false;
+      let hasVisibleItem = false;
       dishes.forEach((dish) => {
         const isVeg = (dish.dataset.tags || "").split(/\s+/).includes("veg");
         dish.hidden = !isVeg;
-        if (isVeg) hasVisibleDish = true;
+        if (isVeg) hasVisibleItem = true;
       });
-      category.hidden = !hasVisibleDish;
+      drinks.forEach((drink) => {
+        const isVeg = (drink.dataset.tags || "").split(/\s+/).includes("veg");
+        drink.hidden = !isVeg;
+        if (isVeg) hasVisibleItem = true;
+      });
+      category.hidden = !hasVisibleItem;
       return;
     }
 
     dishes.forEach((dish) => {
       dish.hidden = false;
+    });
+    drinks.forEach((drink) => {
+      drink.hidden = false;
     });
     category.hidden = selectedFilter !== "all" && category.dataset.category !== selectedFilter;
   });
