@@ -585,6 +585,7 @@ h2 em::after {
 .menu-section {
   color: white;
   background: var(--ink);
+  overflow-anchor: none;
 }
 
 .section-heading-light > div:not(.filters) > p:not(.eyebrow) {
@@ -859,10 +860,6 @@ h2 em::after {
 
 .drink-column-portrait img {
   aspect-ratio: 5 / 7;
-}
-
-.drink-column-square img {
-  aspect-ratio: 1;
 }
 
 .drink-column h4 {

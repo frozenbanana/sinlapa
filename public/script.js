@@ -79,6 +79,17 @@ function applyMenuFilter(selectedFilter) {
   });
 }
 
+function scrollToMenuSection() {
+  const menu = document.querySelector("#meny");
+  if (!menu) return;
+
+  const html = document.documentElement;
+  const previousBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  menu.scrollIntoView({ block: "start" });
+  html.style.scrollBehavior = previousBehavior;
+}
+
 filters.forEach((filterButton) => {
   filterButton.addEventListener("click", () => {
     const selectedFilter = filterButton.dataset.filter;
@@ -90,6 +101,9 @@ filters.forEach((filterButton) => {
     });
 
     applyMenuFilter(selectedFilter);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(scrollToMenuSection);
+    });
   });
 });
 
