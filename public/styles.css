@@ -1490,12 +1490,14 @@ textarea {
 
 .provider-list a {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 18px 2px;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 6px;
 }
 
 .provider-list a:hover {
@@ -1506,6 +1508,11 @@ textarea {
   color: #776b63;
   font-size: 0.76rem;
   text-align: right;
+}
+
+.provider-list a .provider-phone {
+  flex-basis: 100%;
+  text-align: left;
 }
 
 .order-dialog > small {
