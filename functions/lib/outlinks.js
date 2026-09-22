@@ -1,3 +1,5 @@
+import { bumpMonthly } from "./stats.js";
+
 export const OUT_LINKS = {
   foodora: "https://www.foodora.se/restaurant/bjyd/sinlapa",
   wolt: "https://wolt.com/sv/swe/malmo/restaurant/sinlapa"
@@ -15,4 +17,5 @@ export async function bumpOutCount(env, key) {
   current[key] = (Number(current[key]) || 0) + 1;
   current.updatedAt = new Date().toISOString();
   await env.SITE_CONFIG.put(STATS_KEY, JSON.stringify(current));
+  await bumpMonthly(env, "out", key);
 }

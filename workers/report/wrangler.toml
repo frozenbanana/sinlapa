@@ -1,0 +1,24 @@
+name = "sinlapa-report"
+main = "src/index.js"
+compatibility_date = "2026-07-31"
+
+routes = [
+  { pattern = "rapport.sinlapa.se", custom_domain = true }
+]
+
+[triggers]
+crons = ["0 6-8 * * *"]
+
+[[kv_namespaces]]
+binding = "SITE_CONFIG"
+id = "d9e0ba7c99c54d95a3e75b14ff502297"
+
+[vars]
+SITE_URL = "https://sinlapa.se"
+REPORT_BASE_URL = "https://rapport.sinlapa.se"
+REVIEW_EMAIL = "henrybergstrom@protonmail.com"
+NOTIFY_EMAIL = "info@sinlapa.se"
+FROM_EMAIL = "Sinlapa Rapport <rapport@sinlapa.se>"
+CF_ACCOUNT_ID = "3d1895805caacb6332687b2f35f2d74a"
+RUM_SITE_TAG = "a3c22967f4a04e7d8dea55f1e14c3941"
+RUM_HOST_FILTER = "sinlapa.se,www.sinlapa.se"

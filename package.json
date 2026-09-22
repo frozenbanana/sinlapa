@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "wrangler pages dev",
     "deploy": "wrangler pages deploy",
-    "check": "node --check public/script.js && node --check public/admin/admin.js"
+    "check": "node --check public/script.js && node --check public/admin/admin.js",
+    "report:dev": "wrangler dev --config workers/report/wrangler.toml",
+    "report:deploy": "wrangler deploy --config workers/report/wrangler.toml"
   },
   "devDependencies": {
     "wrangler": "^4.118.0"

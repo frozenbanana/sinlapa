@@ -26,6 +26,8 @@ const dialogGalleryGrid = document.querySelector("#dialog-gallery-grid");
 const dialogUpload = document.querySelector("#dialog-upload");
 const dialogResponse = document.querySelector("#dialog-response");
 const mediaDialogClose = document.querySelector("#media-dialog-close");
+const reportList = document.querySelector("#report-list");
+const reportStats = document.querySelector("#report-stats");
 
 let token = sessionStorage.getItem("sinlapa-admin-token") || "";
 let galleryImages = [];
@@ -233,6 +235,11 @@ function setActiveTab(tabName) {
     pane.hidden = pane.dataset.pane !== tabName;
     pane.classList.toggle("active", pane.dataset.pane === tabName);
   });
+  const saveBar = document.querySelector(".admin-save-bar");
+  if (saveBar) saveBar.hidden = tabName === "report";
+  if (tabName === "report") {
+    loadReports().catch((error) => setMessage(reportList, error.message, true));
+  }
 }
 
 function setLunchImage(itemEl, image) {
@@ -268,10 +275,72 @@ async function loadGallery() {
 }
 
 async function loadConfig() {
-  const [config] = await Promise.all([api("/api/admin/site-config"), loadGallery()]);
+  const [config] = await Promise.all([
+    api("/api/admin/site-config"),
+    loadGallery(),
+    loadReports().catch(() => {})
+  ]);
   fillForm(config);
   showEditor(true);
   setActiveTab("lunch");
+}
+
+const MONTH_NAMES = [
+  "januari",
+  "februari",
+  "mars",
+  "april",
+  "maj",
+  "juni",
+  "juli",
+  "augusti",
+  "september",
+  "oktober",
+  "november",
+  "december"
+];
+
+function periodLabel(period) {
+  const [year, month] = String(period).split("-").map(Number);
+  if (!year || !month) return String(period);
+  return `${MONTH_NAMES[month - 1]} ${year}`;
+}
+
+function formatDate(value) {
+  if (!value) return "";
+  return new Date(value).toLocaleDateString("sv-SE", { year: "numeric", month: "long", day: "numeric" });
+}
+
+async function loadReports() {
+  const data = await api("/api/admin/reports");
+  const forms = data.stats?.forms || {};
+  const out = data.stats?.out || {};
+  if (reportStats) {
+    reportStats.innerHTML = `
+      <span><strong>${Number(forms.booking) || 0}</strong> bordsbokningar</span>
+      <span><strong>${Number(forms.catering) || 0}</strong> cateringförfrågningar</span>
+      <span><strong>${(Number(out.foodora) || 0) + (Number(out.wolt) || 0)}</strong> beställningsklick</span>
+      <span class="report-stats-muted">denna månad</span>`;
+  }
+  if (!reportList) return;
+  const reports = data.reports || [];
+  reportList.innerHTML = reports.length
+    ? reports
+        .map(
+          (report) => `
+      <div class="report-row">
+        <div>
+          <strong>${escapeHtml(periodLabel(report.period))}</strong>
+          <small>Skickad ${escapeHtml(formatDate(report.sentAt))}</small>
+        </div>
+        <div class="report-row-actions">
+          <a class="button button-ghost button-compact" href="${escapeAttr(report.webUrl)}" target="_blank" rel="noreferrer">Öppna</a>
+          <a class="button button-ghost button-compact" href="${escapeAttr(report.pdfUrl)}" target="_blank" rel="noreferrer">PDF</a>
+        </div>
+      </div>`
+        )
+        .join("")
+    : `<p class="form-response">Inga rapporter skickade ännu.</p>`;
 }
 
 async function uploadImage(file, responseEl) {

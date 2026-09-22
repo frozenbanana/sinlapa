@@ -45,6 +45,7 @@
           <button class="admin-tab active" type="button" data-tab="lunch" role="tab" aria-selected="true">Lunch</button>
           <button class="admin-tab" type="button" data-tab="hours" role="tab" aria-selected="false">Öppettider</button>
           <button class="admin-tab" type="button" data-tab="gallery" role="tab" aria-selected="false">Bilder</button>
+          <button class="admin-tab" type="button" data-tab="report" role="tab" aria-selected="false">Rapport</button>
         </div>
 
         <form id="config-form" class="admin-form">
@@ -94,6 +95,19 @@
                 <p class="form-response" id="gallery-response" role="status" aria-live="polite"></p>
               </div>
               <div class="gallery-grid" id="gallery-grid"></div>
+            </section>
+
+            <section class="admin-card admin-pane" data-pane="report" hidden>
+              <div class="admin-section-head">
+                <div>
+                  <h2>Månadsrapport</h2>
+                  <p>Skickade rapporter och den här månadens siffror.</p>
+                </div>
+              </div>
+              <div class="report-stats" id="report-stats"></div>
+              <div class="report-list" id="report-list">
+                <p class="form-response">Laddar…</p>
+              </div>
             </section>
           </div>
 

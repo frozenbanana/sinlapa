@@ -1,5 +1,6 @@
 import { json } from "../lib/config.js";
 import { sendNotificationEmail } from "../lib/email.js";
+import { bumpMonthly } from "../lib/stats.js";
 
 function clean(value) {
   return String(value ?? "").trim().slice(0, 2000);
@@ -49,6 +50,10 @@ export async function onRequestPost(context) {
       return json({ error: result.error || "Kunde inte skicka bokningen." }, 502);
     }
 
+    if (!result.mocked) {
+      context.waitUntil(bumpMonthly(context.env, "forms", "booking"));
+    }
+
     return json({
       ok: true,
       mocked: Boolean(result.mocked),
@@ -82,6 +87,10 @@ export async function onRequestPost(context) {
 
   if (!result.ok) {
     return json({ error: result.error || "Kunde inte skicka förfrågan." }, 502);
+  }
+
+  if (!result.mocked) {
+    context.waitUntil(bumpMonthly(context.env, "forms", "catering"));
   }
 
   return json({
