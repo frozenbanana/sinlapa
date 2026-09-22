@@ -6,7 +6,8 @@ import {
   reviewTokenKey,
   draftKey,
   webTokenKey,
-  readIndex
+  readIndex,
+  cleanupPeriod
 } from "./store.js";
 import { renderReport } from "./report.js";
 import { renderReviewPage, renderResultPage } from "./review.js";
@@ -44,6 +45,10 @@ async function handleTest(request, env) {
   const url = new URL(request.url);
   const period = url.searchParams.get("period") || previousMonthKey();
   const force = url.searchParams.get("force") === "1";
+  if (url.searchParams.get("cleanup") === "1") {
+    const removed = await cleanupPeriod(env, period);
+    return json({ status: "cleaned", period, removed });
+  }
   if (force) {
     await env.SITE_CONFIG.delete(draftKey(period));
   }

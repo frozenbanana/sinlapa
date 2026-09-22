@@ -31,3 +31,31 @@ export async function addToIndex(env, entry) {
   await putJson(env, indexKey, next);
   return next;
 }
+
+export async function cleanupPeriod(env, period) {
+  const removed = [];
+  const draft = await getJson(env, draftKey(period));
+  if (draft?.token) {
+    await env.SITE_CONFIG.delete(reviewTokenKey(draft.token));
+    removed.push(reviewTokenKey(draft.token));
+  }
+  const final = await getJson(env, finalKey(period));
+  if (final?.webToken) {
+    await env.SITE_CONFIG.delete(webTokenKey(final.webToken));
+    removed.push(webTokenKey(final.webToken));
+  }
+  for (const key of [draftKey(period), finalKey(period), pdfKey(period), skippedKey(period), errorKey(period)]) {
+    const existing = await env.SITE_CONFIG.get(key);
+    if (existing !== null) {
+      await env.SITE_CONFIG.delete(key);
+      removed.push(key);
+    }
+  }
+  const index = await readIndex(env);
+  const next = index.filter((item) => item.period !== period);
+  if (next.length !== index.length) {
+    await putJson(env, indexKey, next);
+    removed.push(indexKey);
+  }
+  return removed;
+}
