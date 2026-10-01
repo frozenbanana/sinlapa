@@ -1,4 +1,5 @@
 import { periodLabel, previousPeriod, formatNumber, formatDateSv } from "./time.js";
+import { pageLabel } from "./pages.js";
 
 const COLORS = {
   ink: "#17120f",
@@ -93,22 +94,6 @@ function topPagesList(pages) {
       <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:${COLORS.sage};font-weight:700;margin-bottom:4px;">Populäraste sidorna</div>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${rows}</table>
     </div>`;
-}
-
-const PAGE_LABELS = {
-  "/": "Startsidan",
-  "/index.html": "Startsidan",
-  "/#lunch": "Lunch",
-  "/dagens-lunch": "Lunch",
-  "/#meny": "Menyn",
-  "/#boka": "Bordbokning",
-  "/#catering": "Catering",
-  "/#kontakt": "Kontakt",
-  "/erbjudande": "Erbjudande"
-};
-
-function pageLabel(path) {
-  return PAGE_LABELS[path] || path;
 }
 
 function healthRow(item) {
