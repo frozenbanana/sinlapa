@@ -1,21 +1,5 @@
 import { periodRange, previousPeriod, periodLabel, formatNumber } from "./time.js";
-
-const PAGE_LABELS = {
-  "/": "Startsidan",
-  "/index.html": "Startsidan",
-  "/#lunch": "Lunch",
-  "/dagens-lunch": "Lunch",
-  "/#meny": "Menyn",
-  "/#boka": "Bordbokning",
-  "/#catering": "Catering",
-  "/#kontakt": "Kontakt",
-  "/erbjudande": "Erbjudande",
-  "/erbjudande.html": "Erbjudande"
-};
-
-function pageLabel(path) {
-  return PAGE_LABELS[path] || path;
-}
+import { pageLabel, selectTopPages, trackedPaths } from "./pages.js";
 
 async function graphql(env, query) {
   const response = await fetch("https://api.cloudflare.com/client/v4/graphql", {
@@ -33,24 +17,47 @@ async function graphql(env, query) {
   return data.data;
 }
 
-function trafficQuery(env, { start, end }, withOrder) {
-  const order = withOrder ? ", orderBy: [count_DESC]" : "";
+const QUERY_MODES = [
+  { order: true, restrictPaths: true, excludeBots: true },
+  { order: true, restrictPaths: false, excludeBots: true },
+  { order: false, restrictPaths: false, excludeBots: false }
+];
+
+export function buildTrafficQuery(env, range, options = {}) {
+  const { order = true, restrictPaths = true, excludeBots = true } = options;
+  const filters = [
+    `siteTag: "${env.RUM_SITE_TAG}"`,
+    `date_geq: "${range.start}"`,
+    `date_leq: "${range.end}"`
+  ];
   const hosts = (env.RUM_HOST_FILTER || "")
     .split(",")
     .map((host) => host.trim())
     .filter(Boolean)
     .map((host) => `"${host}"`)
     .join(", ");
-  const hostFilter = hosts ? `, requestHost_in: [${hosts}]` : "";
+  if (hosts) filters.push(`requestHost_in: [${hosts}]`);
+  if (excludeBots) filters.push("bot: 0");
+  if (restrictPaths) {
+    const paths = trackedPaths()
+      .map((path) => `"${path}"`)
+      .join(", ");
+    filters.push(`requestPath_in: [${paths}]`);
+  }
+  const filter = filters.join(", ");
+  const orderBy = order ? ", orderBy: [count_DESC]" : "";
+  const pageLimit = restrictPaths ? 40 : 1000;
   return `{
     viewer {
       accounts(filter: { accountTag: "${env.CF_ACCOUNT_ID}" }) {
-        totals: rumPageloadEventsAdaptiveGroups(limit: 1, filter: { siteTag: "${env.RUM_SITE_TAG}"${hostFilter}, date_geq: "${start}", date_leq: "${end}" }) {
+        totals: rumPageloadEventsAdaptiveGroups(limit: 1, filter: { ${filter} }) {
           count
+          avg { sampleInterval }
           sum { visits }
         }
-        pages: rumPageloadEventsAdaptiveGroups(limit: 10, filter: { siteTag: "${env.RUM_SITE_TAG}"${hostFilter}, date_geq: "${start}", date_leq: "${end}" }${order}) {
+        pages: rumPageloadEventsAdaptiveGroups(limit: ${pageLimit}, filter: { ${filter} }${orderBy}) {
           count
+          avg { sampleInterval }
           dimensions { requestPath }
         }
       }
@@ -58,27 +65,48 @@ function trafficQuery(env, { start, end }, withOrder) {
   }`;
 }
 
-async function queryTraffic(env, range) {
-  let data;
-  try {
-    data = await graphql(env, trafficQuery(env, range, true));
-  } catch {
-    data = await graphql(env, trafficQuery(env, range, false));
-  }
+function readTraffic(data) {
   const account = data?.viewer?.accounts?.[0] || {};
   const totals = account.totals?.[0] || {};
-  const pages = (account.pages || [])
-    .map((page) => ({
-      path: page.dimensions?.requestPath || "/",
-      count: Number(page.count) || 0
-    }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 6);
+  const totalInterval = Number(totals.avg?.sampleInterval) || 1;
+  const pages = (account.pages || []).map((page) => ({
+    path: page.dimensions?.requestPath || "/",
+    count: Number(page.count) || 0,
+    sampleInterval: Number(page.avg?.sampleInterval) || totalInterval
+  }));
   return {
     visits: Number(totals.sum?.visits) || 0,
     pageViews: Number(totals.count) || 0,
-    topPages: pages
+    sampleInterval: totalInterval,
+    pages
   };
+}
+
+async function queryTraffic(env, range) {
+  let lastError;
+  for (const mode of QUERY_MODES) {
+    try {
+      const traffic = readTraffic(await graphql(env, buildTrafficQuery(env, range, mode)));
+      return {
+        visits: traffic.visits,
+        pageViews: traffic.pageViews,
+        sampleInterval: traffic.sampleInterval,
+        topPages: selectTopPages(traffic.pages)
+      };
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError;
+}
+
+function trafficNote(current) {
+  if (!current.pageViews) return "Ingen trafik registrerades under perioden.";
+  if (current.sampleInterval > 1) {
+    const step = Math.max(1, Math.round(current.sampleInterval));
+    return `Äldre trafik mäts i ett urval och avrundas till ungefär ${formatNumber(step)}.`;
+  }
+  return "";
 }
 
 function isPartial(period, startedAt) {
@@ -102,7 +130,7 @@ async function collectTraffic(env, period) {
       topPages: current.topPages,
       prev: previous,
       partial: false,
-      note: current.pageViews === 0 ? "Ingen trafik registrerades under perioden." : ""
+      note: trafficNote(current)
     };
   } catch (error) {
     return { available: false, partial: false, note: `Kunde inte hämta trafikstatistik (${error.message}).` };

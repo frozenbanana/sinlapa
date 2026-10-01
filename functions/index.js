@@ -84,7 +84,7 @@ export async function onRequest(context) {
 
   replaced = applySocialMeta(replaced, context.request, context.env);
 
-  const beacon = analyticsSnippet(context.env.WEB_ANALYTICS_TOKEN);
+  const beacon = response.status === 200 ? analyticsSnippet(context.env.WEB_ANALYTICS_TOKEN) : "";
   const finalHtml =
     beacon && !replaced.includes("beacon.min.js")
       ? replaced.replace("</body>", `${beacon}\n  </body>`)
